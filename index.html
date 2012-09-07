@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -14,7 +14,7 @@
                     function (data) {
                         $.each(data.posts, function (i, posts) {
                             var blogtext = this["regular-body"];
-                            $('#blog').append(blogtext);
+                            $('#posts').append(blogtext);
                         });
                     });
         });
@@ -196,14 +196,15 @@
 
 </div>
 
-<div id="page5" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD; text-align:center">
-    <center>
-        <h1>Blogg</h1>
-
-        <div style="width:50%; text-align:center">
-            <ul id="blog"></ul>
+<div id="page5" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD;">
+    <div class="blogcontent">
+        <div style="margin-top: 10%;">
+            <img src="images/blogg.png">
         </div>
-    </center>
+        <div class="blog">
+            <ul id="posts"></ul>
+        </div>
+    </div>
 </div>
 
 <div id="page6" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
