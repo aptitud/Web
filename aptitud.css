@@ -25,7 +25,6 @@ div.blog {
     overflow: scroll;
     height:450px;
     overflow-x: hidden;
-    background: #55AADD;
 }
 
 div {
@@ -36,10 +35,14 @@ body {
 	overflow: hidden;
 }
 
-p.paragraph {
+p.paragraph, div.blog {
     color: white;
     text-align: left;
     font-weight: lighter;
     font-size: 13pt;
     font-family: sans-serif;
+}
+
+div.blog {
+    padding-right: 20px;
 }
