@@ -1,20 +1,245 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Aptitud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Aptitud</title>
+
+    <script type="text/javascript" src="script/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="aptitud.js"></script>
+    <link href="aptitud.css" rel="stylesheet" type="text/css">
+    <script>
+        $(document).ready(function () {
+            $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
+                    function (data) {
+                        $.each(data.posts, function (i, posts) {
+                            var blogtext = this["regular-body"];
+                            $('#blog').append(blogtext);
+                        });
+                    });
+        });
+    </script>
 </head>
 
-<body style="font-size:48pt; background: #F05661">
-Aptituddagen
 
-<ul>
- <li>Vi träffas en arbetsdag i månaden </li>
- <li>Vi kodar tillsammans, för att det är kul</li>
- <li>Vi gillar människor, alla är välkomna</li>
- <li>Vi börjar dagen med att sätta agendan</li>
- <li>Anything goes</li>
-<ul>
+<body onload="init();" onresize="updateSize();" style="overflow:hidden">
+
+<div id="page1" class="aptitud-page" data-column="0" data-row="0" style="background: #FF0096; text-align:center">
+    <img src="images/kalender.png" width="500" height="76" vspace="20px">
+
+    <div style="text-align:center; height:80%;width:50%">
+
+        <table border="1" width="100%" height="100%">
+            <tr valign="middle">
+                <td>
+                    <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23FF0096&amp;src=aptitud.sthlm%40gmail.com&amp;
+    color=%23FF0096&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23711616&amp;src=sv.swedish%23holiday%40group.v.calendar.google.com&amp;color=%23FF0096&amp;src=oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com&amp;color=%23FF0096&amp;src=p%23weeknum%40group.v.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FStockholm"
+                            style=" border-width:0 " width="50%" height="80%" frameborder="0" scrolling="auto"
+                            marginheight="0">
+                    </iframe>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div id="page2" class="aptitud-page" data-column="0" data-row="1" style="background: #F05661">
+    <table style="width:100%; height:100%">
+        <tr valign="middle">
+            <td align="center"><img src="images/Aptitud-logo_vit-platta_transp_500pix.png"/></td>
+        </tr>
+    </table>
+</div>
+
+<div id="page3" class="aptitud-page" data-column="1" data-row="0"
+     style="background: #FF360f; color: white; font-size: 36pt">
+    Aptituddagen
+
+    <ul>
+        <li>Vi träffas en arbetsdag i månaden</li>
+        <li>Vi kodar tillsammans, för att det är kul</li>
+        <li>Vi gillar människor, alla är välkomna</li>
+        <li>Vi börjar dagen med att sätta agendan</li>
+        <li>Anything goes</li>
+        <ul>
+</div>
+
+
+<div id="page4" class="aptitud-page" data-column="1" data-row="1" style="background: #FFBA00">
+    <table width="200" border="1">
+        <tr>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Father, sailor, information junkie, passionate about, and inspired by people.
+                            Founder and Happy colleague of Aptitud
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Anders Löwenborg</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Nackabo, Nanobryggare, matlagare, musiknörd. Flyter omkring någonstans mellan IT och
+                            Verksamhet.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tomas Näslund</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>.NET Utvecklare som brinner för kodkvalitet. Pappa, Mat- och Musiknörd.</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Gustav Dahlman</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>En programmeringens häxmästare som gärna svär när saker inte går dom han vill (vilket nästan
+                            aldrig händer).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Andreas Nilsson</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Brinner för att ha kul på jobbet. Gillar att få organisationer och team att jobba effektivt
+                            och tillsammans.
+                            Ledare med utgångspunkt i både individen, gruppen, affären och tekniken.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Fredric Ståhlgren</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Mer här....</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">David Blomberg</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Börjar snart...</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Fellow 1</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Börjar snart...</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Fellow 2</td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table width="350" border="1">
+                    <tr>
+                        <td><img src="images/Aptitud-logo_vit-platta_transp_200pix.png" width="200" height="140"></td>
+                        <td>Kontakta oss om du vill bli nummer 9!</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Vem är du?</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div id="page5" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD; text-align:center">
+    <center>
+        <h1>Blogg</h1>
+
+        <div style="width:50%; text-align:center">
+            <ul id="blog"></ul>
+        </div>
+    </center>
+</div>
+
+<div id="page6" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
+    <div style="width: 100%; margin-top: 10%;">
+        <table style="margin-right: auto; margin-left: auto;">
+            <tr>
+                <td><img src="images/filosofi.png"/></td>
+            </tr>
+            <tr>
+                <td style="width: 500px;">
+                    <p class="paragraph">
+                        Vi bygger Stockholms bästa arbetsplats. Där fokus är att ha roligt i sitt arbete. En plats dit
+                        människor söker
+                        sig naturligt, dit alla är välkomna. Välkomna att utbyta ideer, att inspireras och att
+                        inspirera.
+                    </p>
+
+                    <p class="paragraph">
+                        En plats för stolta och passionerade hantverkare. Ivriga att lära och dela med sig av sin
+                        kunskap.
+                        Präglade av
+                        ödmjukhet och strävan mot ständig förbättring.
+                    </p>
+
+                    <p class="paragraph">
+                        En plats för konsulter, deras vänner och kunder. Utvecklare, coacher, evangelister, ledare, ja
+                        alla som
+                        driver
+                        på utvecklingen inom området. En plats för oss som är seriösa utan att ta oss själva på för
+                        stort
+                        allvar. För
+                        oss som tycker om att ha roligt.
+                    </p>
+
+                    <p class="paragraph">
+                        Vi ska drivas av Glädje, Transparens och Jävlar anamma.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center">
+                    <img src="images/homeknapp.png" style="padding-top: 20pt" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
 
 </body>
 </html>

@@ -1,0 +1,27 @@
+@charset "utf-8";
+/* CSS Document */
+
+div.unselected-page {
+    /* opacity: 0.5; */
+}
+
+div.aptitud-page {
+	position: relative;	
+	-moz-box-shadow:  0 0 2px 2px #888;
+	-webkit-box-shadow:  0 0 2px 2px#888;
+	box-shadow:  0 0 2px 2px #888;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+body {
+	overflow: hidden;
+}
+
+p.paragraph {
+    color: white;
+    text-align: justify;
+    font-weight: lighter;
+    font-size: 13pt;
+    font-family: sans-serif;
+}
