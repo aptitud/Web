@@ -1,3 +1,13 @@
+// Tour
+//
+
+function launchTour() {
+
+}
+
+// Layout
+//
+
 var APTITUD_GRID = null;
 
 function init() {
