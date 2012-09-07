@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 div.unselected-page {
@@ -14,13 +14,31 @@ div.aptitud-page {
     visibility: hidden;
 }
 
+div.blogcontent {
+    width: 55%;
+    margin-bottom: 10px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+div.blog {
+    overflow: scroll;
+    height:450px;
+    overflow-x: hidden;
+    background: #55AADD;
+}
+
+div {
+
+}
+
 body {
 	overflow: hidden;
 }
 
 p.paragraph {
     color: white;
-    text-align: justify;
+    text-align: left;
     font-weight: lighter;
     font-size: 13pt;
     font-family: sans-serif;

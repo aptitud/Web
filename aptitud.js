@@ -2,7 +2,28 @@
 //
 
 function launchTour() {
+    var path = [
+        { x: 0, y: 0 },
+        { x: 1, y: 0 },
+        { x: 1, y: 1 },
+        { x: 1, y: 2 },
+        { x: 0, y: 2 },
+        { x: 0, y: 1 }
+    ];
 
+    var index = 0;
+
+    var showScreen = function() {
+        var vertex = path[index++];
+
+        APTITUD_GRID.setSelectedCell(vertex.x, vertex.y , false, function() {
+            if (index < path.length) {
+                window.setTimeout(showScreen, 6000);
+            }
+        });
+    };
+
+    showScreen();
 }
 
 // Layout
@@ -143,7 +164,7 @@ Grid.prototype.update = function () {
     this.doLayout();
 };
 
-Grid.prototype.setSelectedCell = function (column, row, skipAnimate) {
+Grid.prototype.setSelectedCell = function (column, row, skipAnimate, callback) {
     var pageSize = this._options.pageSize;
     var padding = this._options.padding;
 
@@ -158,7 +179,7 @@ Grid.prototype.setSelectedCell = function (column, row, skipAnimate) {
     var newY = cellPosition.y;
 
     if (!skipAnimate) {
-        move(this._contentPanel, -newX, -newY);
+        move(this._contentPanel, -newX, -newY, callback);
     } else {
         this._contentPanel.style.left = (-newX) + "px";
         this._contentPanel.style.top = (-newY) + "px";
@@ -212,7 +233,7 @@ function animate(animation, callback) {
     window.setTimeout(animator, frameDuration);
 }
 
-function move(element, newX, newY) {
+function move(element, newX, newY, callback) {
     animate(function () {
         var currentX = parseInt(element.style.left == "" ? 0 : element.style.left);
         var currentY = parseInt(element.style.top == "" ? 0 : element.style.top);
@@ -232,5 +253,5 @@ function move(element, newX, newY) {
         element.style.top = (tempY + "px");
 
         return proceed;
-    });
+    }, callback);
 }

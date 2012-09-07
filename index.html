@@ -1,7 +1,7 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Aptitud</title>
 
@@ -14,7 +14,7 @@
                     function (data) {
                         $.each(data.posts, function (i, posts) {
                             var blogtext = this["regular-body"];
-                            $('#blog').append(blogtext);
+                            $('#posts').append(blogtext);
                         });
                     });
         });
@@ -45,19 +45,20 @@
 
 <div id="startPage" class="aptitud-page" data-column="0" data-row="1" style="background: #FF3333">
     <a href="#" onclick="APTITUD_GRID.setSelectedCell(1, 0);">
-        <img class="sticker" data-rotation="-5" src="images/aptituddagen.png" style="position: absolute; left: 2%; top: 10%;" />
+        <img class="sticker" data-rotation="-5" src="images/aptituddagen.png"
+             style="position: absolute; left: 2%; top: 10%;"/>
     </a>
 
     <a href="#" onclick="APTITUD_GRID.setSelectedCell(1, 1);">
-        <img class="sticker" src="images/aptituddagen.png" style="position: absolute; left: 2%; top: 60%;" />
+        <img class="sticker" src="images/vi.png" style="position: absolute; left: 2%; top: 60%; " width="20%" />
     </a>
 
     <a href="http://oredev.org/2012/partners">
-        <img class="sticker" src="images/aptituddagen.png" style="position: absolute; left: 65%; top: 12%;" />
+        <img class="sticker" src="images/aptituddagen.png" style="position: absolute; left: 65%; top: 12%;"/>
     </a>
 
     <a href="#" onclick="launchTour();">
-        <img class="sticker" src="images/aptituddagen.png" style="position: absolute; left: 65%; top: 68%;" />
+        <img class="sticker" src="images/30sek.png" style="position: absolute; left: 75%; top: 68%;"/>
     </a>
 
     <table style="width:100%; height:100%">
@@ -67,20 +68,25 @@
     </table>
 </div>
 
-<div id="aptitudDayPage" class="aptitud-page" data-column="1" data-row="0" style="background: #7A9752; color: white; font-size: 36pt">
+<div id="aptitudDayPage" class="aptitud-page" data-column="1" data-row="0"
+     style="background: #7A9752; color: white; font-size: 36pt">
     <div style="width: 100%; margin-top: 10%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
-                <td><img src="images/aptituddagen.png" /></td>
+                <td><img src="images/aptituddagen.png"/></td>
             </tr>
             <tr>
                 <td style="width: 404px;">
                     <p class="paragraph">
-                        Vi träffas en arbetsdag i månaden för att utveckla tillsammans. Bara för att det är kul och för att bli inspirerade. Och för att umgås. Vi gillar nämligen människor. Därför är dörren öppen och alla är välkomna. Vi börjar dagen med att sätta agendan och kolla av vilka projekt som är igång och vad det finns för roliga ideer som behöver realiseras. Anything goes!
+                        Vi träffas en arbetsdag i månaden för att utveckla tillsammans. Bara för att det är kul och för
+                        att bli inspirerade. Och för att umgås. Vi gillar nämligen människor. Därför är dörren öppen och
+                        alla är välkomna. Vi börjar dagen med att sätta agendan och kolla av vilka projekt som är igång
+                        och vad det finns för roliga ideer som behöver realiseras. Anything goes!
                     </p>
 
                     <p class="paragraph">
-                        Vis av erfarenhet så blir det en sen kväll för många. För det är sjukt svårt att slita sig från roliga projekt och vänner!
+                        Vis av erfarenhet så blir det en sen kväll för många. För det är sjukt svårt att slita sig från
+                        roliga projekt och vänner!
                     </p>
                 </td>
             </tr>
@@ -98,7 +104,7 @@
 
 <div id="fellowPage" class="aptitud-page" data-column="1" data-row="1" style="background: #FF6633; text-align: center;">
     <div style="width: 100%">
-        <img src="images/personbeskrivning-utan-skugga.png" style="margin-left: auto; margin-right: auto; " />
+        <img src="images/personbeskrivning-utan-skugga.png" style="margin-left: auto; margin-right: auto; "/>
     </div>
 
     <!--
@@ -221,14 +227,30 @@
     -->
 </div>
 
-<div id="blogPage" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD; text-align:center">
-    <center>
-        <h1>Blogg</h1>
+<div id="blogPage" class="aptitud-page" data-column="0" data-row="2" style="background: #3399CC;">
+    <!--
+    <div class="blogcontent">
+        <div style="margin-top: 10%;">
 
-        <div style="width:50%; text-align:center">
-            <ul id="blog"></ul>
         </div>
-    </center>
+
+    </div>
+    -->
+
+    <div style="width: 100%; margin-top: 10%;">
+        <table style="margin-right: auto; margin-left: auto;">
+            <tr>
+                <td><img src="images/blogg.png"></td>
+            </tr>
+            <tr>
+                <td style="width: 500px;">
+                    <div class="blog">
+                        <ul id="posts"></ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>
 
 <div id="philosophyPage" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
@@ -271,7 +293,7 @@
             <tr>
                 <td style="text-align: center">
                     <a href="#" onclick="APTITUD_GRID.setSelectedCell(0, 1);">
-                        <img src="images/homeknapp_mini.png" style="padding-top: 20pt" />
+                        <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
             </tr>
