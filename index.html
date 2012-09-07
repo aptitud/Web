@@ -24,7 +24,7 @@
 
 <body onload="init();" onresize="updateSize();" style="overflow:hidden">
 
-<div id="page1" class="aptitud-page" data-column="0" data-row="0" style="background: #FF0096; text-align:center">
+<div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" style="background: #FF0096; text-align:center">
     <img src="images/kalender.png" width="500" height="76" vspace="20px">
 
     <div style="text-align:center; height:80%;width:50%">
@@ -43,7 +43,11 @@
     </div>
 </div>
 
-<div id="page2" class="aptitud-page" data-column="0" data-row="1" style="background: #F05661">
+<div id="startPage" class="aptitud-page" data-column="0" data-row="1" style="background: #F05661">
+    <a href="#" onclick="APTITUD_GRID.setSelectedCell(1, 0);">
+        <img class="sticker" data-rotation="-5" src="images/aptituddagen.png" style="position: absolute; left: 2%; top: 10%;" />
+    </a>
+
     <table style="width:100%; height:100%">
         <tr valign="middle">
             <td align="center"><img src="images/Aptitud-logo_vit-platta_transp_500pix.png"/></td>
@@ -51,16 +55,17 @@
     </table>
 </div>
 
-<div id="page3" class="aptitud-page" data-column="1" data-row="0" style="background: #7A9752; color: white; font-size: 36pt">
+<div id="aptitudDayPage" class="aptitud-page" data-column="1" data-row="0" style="background: #7A9752; color: white; font-size: 36pt">
     <div style="width: 100%; margin-top: 10%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
-                <td><img src="images/aptituddagen.png"/></td>
+                <td><img src="images/aptituddagen.png" /></td>
             </tr>
             <tr>
                 <td style="width: 404px;">
                     <p class="paragraph">
-                        En tidig tanke som vi hade inom Aptitud var att skapa glädje i vardagen. Hur gör man det då? Hmm, börja med att ta bort åtta timmar ur debiteringskarusellen. Ta dessa åtta timmar och gör nåt roligt. Tillsammans, för dig själv, med andra? Hey, alla är välkommna på vår Aptituddag. En dag i månaden så samlas vi och startar med en stand up där alla får säga vad de vill göra med dagen. Sitter du utan uppdrag eller är på semester? Häng på oss och ha en kreativ och rolig dag!
+                        Vi träffas en arbetsdag i månaden. Vi kodar tillsammans, för att det är kul.
+                        Vi gillar människor, alla är välkomna. Vi börjar dagen med att sätta agendan. Anything goes.
                     </p>
                 </td>
             </tr>
@@ -76,7 +81,10 @@
 </div>
 
 
-<div id="page4" class="aptitud-page" data-column="1" data-row="1" style="background: #FFBA00">
+<div id="fellowPage" class="aptitud-page" data-column="1" data-row="1" style="background: #FF360F">
+    <img src="images/personbeskrivning-utan-skugga.png" />
+
+    <!--
     <table width="200" border="1">
         <tr>
             <td>
@@ -193,10 +201,10 @@
             </td>
         </tr>
     </table>
-
+    -->
 </div>
 
-<div id="page5" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD; text-align:center">
+<div id="blogPage" class="aptitud-page" data-column="0" data-row="2" style="background: #6242AD; text-align:center">
     <center>
         <h1>Blogg</h1>
 
@@ -206,7 +214,7 @@
     </center>
 </div>
 
-<div id="page6" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
+<div id="philosophyPage" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
     <div style="width: 100%; margin-top: 10%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>

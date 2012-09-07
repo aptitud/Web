@@ -1,6 +1,34 @@
 var APTITUD_GRID = null;
 
 function init() {
+    _initGrid();
+    _initStickers();
+}
+
+function _initStickers() {
+    $(".sticker").each(function(index, element) {
+        var rotation = element.getAttribute("data-rotation");
+
+        if (rotation) {
+            element.style["transform"] = "rotate(" + rotation + "deg)";
+            element.style["-ms-transform"] = "rotate(" + rotation + "deg)";
+            element.style["-webkit-transform"] = "rotate(" + rotation + "deg)";
+            element.style["-o-transform"] = "rotate(" + rotation + "deg)";
+            element.style["-moz-transform"] = "rotate(" + rotation + "deg)"
+        }
+    });
+}
+
+function doLayout() {
+    APTITUD_GRID.update();
+}
+
+function updateSize() {
+    APTITUD_GRID._options.pageSize = { width:$(window).width() - 60, height:$(window).height() - 60 };
+    doLayout();
+}
+
+function _initGrid() {
     APTITUD_GRID = new Grid(document.body, {
         columns:2,
         rows:3,
@@ -28,15 +56,6 @@ function init() {
     $(".aptitud-page").each(function (index, element) {
         $(element).css("visibility", "visible");
     });
-}
-
-function doLayout() {
-    APTITUD_GRID.update();
-}
-
-function updateSize() {
-    APTITUD_GRID._options.pageSize = { width:$(window).width() - 60, height:$(window).height() - 60 };
-    doLayout();
 }
 
 // Grid (page container)
