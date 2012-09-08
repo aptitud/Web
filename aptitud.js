@@ -219,7 +219,7 @@ Grid.prototype.doLayout = function () {
 
 var ANIMATION_IN_PROGRESS = false;
 
-function animate(animation, callback) {
+function animate(animation, callback, timeout, timeoutCallback) {
     if (ANIMATION_IN_PROGRESS) {
         return false;
     }
@@ -227,9 +227,20 @@ function animate(animation, callback) {
     ANIMATION_IN_PROGRESS = true;
 
     var frameDuration = 50;
+    var startDate = new Date();
 
     var animator = function () {
-        if (animation()) {
+        var timedOut = false;
+
+        if (timeout && new Date().getTime() - startDate.getTime() > timeout) {
+            timedOut = true;
+
+            if (timeoutCallback) {
+                timeoutCallback();
+            }
+        }
+
+        if (!timedOut && animation()) {
             window.setTimeout(animator, frameDuration);
         } else {
             ANIMATION_IN_PROGRESS = false;
@@ -265,5 +276,8 @@ function move(element, newX, newY, callback) {
         element.style.top = (tempY + "px");
 
         return proceed;
-    }, callback);
+    }, callback, 1000, function() {
+        element.style.left = (newX + "px");
+        element.style.top = (newY + "px");
+    });
 }
