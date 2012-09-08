@@ -217,13 +217,23 @@ Grid.prototype.doLayout = function () {
 
 /** Animation stuff **/
 
+var ANIMATION_IN_PROGRESS = false;
+
 function animate(animation, callback) {
+    if (ANIMATION_IN_PROGRESS) {
+        return false;
+    }
+
+    ANIMATION_IN_PROGRESS = true;
+
     var frameDuration = 50;
 
     var animator = function () {
         if (animation()) {
             window.setTimeout(animator, frameDuration);
         } else {
+            ANIMATION_IN_PROGRESS = false;
+
             if (callback) {
                 callback();
             }
@@ -231,6 +241,8 @@ function animate(animation, callback) {
     };
 
     window.setTimeout(animator, frameDuration);
+
+    return true;
 }
 
 function move(element, newX, newY, callback) {
