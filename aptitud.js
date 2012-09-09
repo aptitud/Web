@@ -64,7 +64,7 @@ function _initGrid() {
         columns:2,
         rows:3,
         pageSize:{ width:$(window).width() - 60, height:$(window).height() - 60 },
-        padding:10
+        padding:1
     });
 
     $(".aptitud-page").each(function (index, element) {
@@ -76,7 +76,9 @@ function _initGrid() {
 
         (function (c, r) {
             page.onmousedown = function () {
-                APTITUD_GRID.setSelectedCell(c, r);
+                if (c != APTITUD_GRID._options.selectedCell.x || r != APTITUD_GRID._options.selectedCell.y) {
+                    APTITUD_GRID.setSelectedCell(c, r);
+                }
             };
         })(column, row);
     });
@@ -158,7 +160,7 @@ Grid.prototype.setPage = function (column, row, element) {
 
 Grid.prototype.update = function () {
     if (this._options.selectedCell) {
-        this.setSelectedCell(this._options.selectedCell.column, this._options.selectedCell.row, false);
+        this.setSelectedCell(this._options.selectedCell.x, this._options.selectedCell.y, false);
     }
 
     this.doLayout();
