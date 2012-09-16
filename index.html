@@ -9,6 +9,7 @@
     <script type="text/javascript" src="script/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="script/animation.js"></script>
     <script type="text/javascript" src="script/grid.js"></script>
+    <script type="text/javascript" src="script/navigation.js"></script>
     <script type="text/javascript" src="script/aptitud.js"></script>
     <link href="aptitud.css" rel="stylesheet" type="text/css">
     <script>
@@ -25,9 +26,9 @@
 </head>
 
 
-<body onload="init();" style="overflow:hidden">
+<body style="overflow:hidden">
 
-<div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" style="background: #FF0096; text-align:center">
+<div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" data-bookmark="kalender" style="background: #FF0096; text-align:center">
     <div style="width: 100%; margin-top: 5%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
@@ -44,7 +45,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 0, row: 1 });">
+                    <a href="#hem">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
@@ -53,17 +54,17 @@
     </div>
 </div>
 
-<div id="startPage" class="aptitud-page" data-column="0" data-row="1" style="background: #FF3333">
-    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 1, row: 0 });">
+<div id="startPage" class="aptitud-page" data-column="0" data-row="1" data-bookmark="hem" style="background: #FF3333">
+    <a href="#aptituddagen">
         <img class="sticker" data-rotation="-5" src="images/aptituddagen.png"
              style="position: absolute; left: 2%; top: 10%;"/>
     </a>
 
-    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 1, row: 1 });">
+    <a href="#vi">
         <img class="sticker" src="images/vi.png" style="position: absolute; left: 12%; top: 65%; " width="150" />
     </a>
 
-    <a href="http://oredev.org/2012/partners">
+    <a href="http://oredev.org/2012/partners" target="new">
         <img class="sticker" src="images/oredev.jpg" data-rotation="3" style="position: absolute; left: 72%; top: 12%;" width="250"/>
     </a>
 
@@ -78,8 +79,7 @@
     </table>
 </div>
 
-<div id="aptitudDayPage" class="aptitud-page" data-column="1" data-row="0"
-     style="background: #7A9752; color: white; font-size: 36pt">
+<div id="aptitudDayPage" class="aptitud-page" data-column="1" data-row="0" data-bookmark="aptituddagen" style="background: #7A9752; color: white; font-size: 36pt">
     <div style="width: 100%; margin-top: 10%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
@@ -102,7 +102,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 0, row: 1 });">
+                    <a href="#hem">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
@@ -112,7 +112,7 @@
 </div>
 
 
-<div id="fellowPage" class="aptitud-page" data-column="1" data-row="1" style="background: #FF6633; text-align: center;">
+<div id="fellowPage" class="aptitud-page" data-column="1" data-row="1" data-bookmark="vi" style="background: #FF6633; text-align: center;">
     <div style="width: 100%">
         <img src="images/vi.png"
              style="position: absolute; left: 7%; top: 10%;" width="200"/>
@@ -121,7 +121,7 @@
     </div>
 </div>
 
-<div id="blogPage" class="aptitud-page" data-column="0" data-row="2" style="background: #3399CC;">
+<div id="blogPage" class="aptitud-page" data-column="0" data-row="2" data-bookmark="blogg" style="background: #3399CC;">
     <div style="width: 100%; margin-top: 5%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
@@ -138,7 +138,7 @@
     </div>
 </div>
 
-<div id="philosophyPage" class="aptitud-page" data-column="1" data-row="2" style="background: #1e859a;">
+<div id="philosophyPage" class="aptitud-page" data-column="1" data-row="2" data-bookmark="filosofi" style="background: #1e859a;">
     <div style="width: 100%; margin-top: 10%;">
         <table style="margin-right: auto; margin-left: auto;">
             <tr>
@@ -177,7 +177,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({column: 0, row: 1});">
+                    <a href="#hem">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>

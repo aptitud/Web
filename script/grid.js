@@ -218,6 +218,10 @@ Grid.prototype.selectedCellVisible = function(options) {
             return;
         }
 
+        if (options.suppressAnimations) {
+            suppressAnimation = true;
+        }
+
         // var cellSize = { width: $(selectedCell.content).width(), height: $(selectedCell.content).height() };
         var cellSize = thiz._options.getCellSize();
         var positionInGrid = { left: selectedCell.column * (cellSize.width + thiz._options.cellSpacing), top: selectedCell.row * (cellSize.height + thiz._options.cellSpacing) };

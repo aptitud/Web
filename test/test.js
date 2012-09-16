@@ -16,6 +16,12 @@ function assertTrue(outcome, message) {
     }
 }
 
+function assertNotNull(instance, message) {
+    if (!instance) {
+        throw new Error("Expected non-null" + (message ? " : " + message : ""));
+    }
+}
+
 function fail(message) {
     throw new Error("fail()" + (message ? " : " + message : ""));
 }
@@ -134,6 +140,7 @@ function runTestFixture(testFixture, callback) {
 
                     this._timeoutHandle = window.setTimeout(function() {
                         testReport.failures.push({ test: currentTest, cause: "Async operation timed out" })
+                        testFixture.tearDown();
                         runNextTest();
                     }, timeout);
                 },
@@ -150,6 +157,7 @@ function runTestFixture(testFixture, callback) {
                     }
 
                     testReport.passed.push(currentTest);
+                    testFixture.tearDown();
                     runNextTest();
                 }
             }
@@ -161,7 +169,9 @@ function runTestFixture(testFixture, callback) {
             try {
                 currentTest.testFunction.apply(testFixture.def, [testContext]);
             } finally {
-                testFixture.tearDown();
+                if (!testContext.async._enabled) {
+                    testFixture.tearDown();
+                }
             }
 
             if (!testContext.async._enabled) {
