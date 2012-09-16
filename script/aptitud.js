@@ -83,9 +83,7 @@ function launchTour() {
     var index = 0;
 
     var showScreen = function() {
-        var vertex = path[index++];
-
-        AptitudContext.getNavigator().navigate(vertex);
+        AptitudContext.getNavigator().navigate(path[index++]);
 
         if (index < path.length) {
             window.setTimeout(showScreen, 6000);
