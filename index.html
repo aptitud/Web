@@ -1,13 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <title>Aptitud</title>
 
     <script type="text/javascript" src="script/jquery-1.8.1.min.js"></script>
-    <script type="text/javascript" src="aptitud.js"></script>
+    <script type="text/javascript" src="script/animation.js"></script>
+    <script type="text/javascript" src="script/grid.js"></script>
+    <script type="text/javascript" src="script/aptitud.js"></script>
     <link href="aptitud.css" rel="stylesheet" type="text/css">
     <script>
         $(document).ready(function () {
@@ -23,7 +25,7 @@
 </head>
 
 
-<body onload="init();" onresize="updateSize();" style="overflow:hidden">
+<body onload="init();" style="overflow:hidden">
 
 <div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" style="background: #FF0096; text-align:center">
     <div style="width: 100%; margin-top: 5%;">
@@ -42,7 +44,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell(0, 1);">
+                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 0, row: 1 });">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
@@ -52,12 +54,12 @@
 </div>
 
 <div id="startPage" class="aptitud-page" data-column="0" data-row="1" style="background: #FF3333">
-    <a href="#" onclick="APTITUD_GRID.setSelectedCell(1, 0);">
+    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 1, row: 0 });">
         <img class="sticker" data-rotation="-5" src="images/aptituddagen.png"
              style="position: absolute; left: 2%; top: 10%;"/>
     </a>
 
-    <a href="#" onclick="APTITUD_GRID.setSelectedCell(1, 1);">
+    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 1, row: 1 });">
         <img class="sticker" src="images/vi.png" style="position: absolute; left: 12%; top: 65%; " width="150" />
     </a>
 
@@ -100,7 +102,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell(0, 1);">
+                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({ column: 0, row: 1 });">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
@@ -175,7 +177,7 @@
             </tr>
             <tr>
                 <td style="text-align: center">
-                    <a href="#" onclick="APTITUD_GRID.setSelectedCell(0, 1);">
+                    <a href="#" onclick="APTITUD_GRID.setSelectedCell({column: 0, row: 1});">
                         <img src="images/homeknapp_mini.png" style="padding-top: 20pt"/>
                     </a>
                 </td>
