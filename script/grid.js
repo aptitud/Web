@@ -208,8 +208,8 @@ Grid.prototype.selectedCellVisible = function(options) {
         var viewPortSize = thiz.getViewPortSize();
 
         return {
-            width: viewPortSize.width - 2 * peakAmount - Math.max(0, cellSpacing * (dimensions.columns - 1)),
-            height: viewPortSize.height - 2 * peakAmount - Math.max(0, cellSpacing * (dimensions.rows - 1))
+            width: viewPortSize.width - 2 * peakAmount,
+            height: viewPortSize.height - 2 * peakAmount
         }
     };
 

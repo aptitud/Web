@@ -19,7 +19,7 @@ $(function() {
     AptitudContext = createAptitudContext();
 
     AptitudContext._grid = (function(ctx) {
-        var layoutOptions = { peakAmount: 15, move: move, suppressAnimations: false };
+        var layoutOptions = { peakAmount: 20, move: move, suppressAnimations: false };
 
         var grid = new Grid(document.body, {
             cellSpacing: 1,
@@ -72,12 +72,12 @@ $(function() {
 
 function launchTour() {
     var path = [
-        { x: 0, y: 0 },
-        { x: 1, y: 0 },
-        { x: 1, y: 1 },
-        { x: 1, y: 2 },
-        { x: 0, y: 2 },
-        { x: 0, y: 1 }
+        "kalender",
+        "aptituddagen",
+        "vi",
+        "filosofi",
+        "blogg",
+        "hem"
     ];
 
     var index = 0;
@@ -85,11 +85,11 @@ function launchTour() {
     var showScreen = function() {
         var vertex = path[index++];
 
-        APTITUD_GRID.setSelectedCell(vertex.x, vertex.y , false, function() {
-            if (index < path.length) {
-                window.setTimeout(showScreen, 6000);
-            }
-        });
+        AptitudContext.getNavigator().navigate(vertex);
+
+        if (index < path.length) {
+            window.setTimeout(showScreen, 6000);
+        }
     };
 
     showScreen();
@@ -109,5 +109,16 @@ function _initStickers() {
             element.style["-o-transform"] = "rotate(" + rotation + "deg)";
             element.style["-moz-transform"] = "rotate(" + rotation + "deg)"
         }
+
+        /*var tape = document.createElement("img");
+        tape.src = "images/tejp.png";
+
+        with (tape.style) {
+            position = "absolute";
+            left = ($(element).position().left + $(element).width()/2) + "px";
+            top = $(element).position().top + "px";
+        }
+
+        element.parentNode.appendChild(tape);*/
     });
 }

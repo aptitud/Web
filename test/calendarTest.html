@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript" src="../script/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="../script/calendar.js"></script>
+</head>
+<body>
+<div>
+    <!CDATA[foobar]]>
+</div>
+
+<script type="text/javascript">
+    var CalendarTest = {
+        setUp: function() {
+            this._calendar = new Calendar();
+        },
+
+        testLoadCalendarData: function() {
+            this._calendar.addEntriesFromFeed({
+                load: function(ctx) {
+                    ctx. /**/success(sampleCalendarData);
+                }
+            });
+        }
+    };
+
+    var sampleCalendarData =
+    {"version":"1.0", "encoding":"UTF-8", "feed":{
+        "xmlns":"http://www.w3.org/2005/Atom",
+        "xmlns$openSearch":"http://a9.com/-/spec/opensearchrss/1.0/",
+        "xmlns$gCal":"http://schemas.google.com/gCal/2005",
+        "xmlns$gd":"http://schemas.google.com/g/2005",
+        "id":{
+            "$t":"http://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic"
+        },
+        "updated":{
+            "$t":"2012-09-16T14:12:25.000Z"
+        },
+        "category":[
+            {
+                "scheme":"http://schemas.google.com/g/2005#kind",
+                "term":"http://schemas.google.com/g/2005#event"
+            }
+        ],
+        "title":{
+            "$t":"Usergroup.se (curated by @xlson @peter_lind @msundb)",
+            "type":"text"
+        },
+        "subtitle":{
+            "$t":"A collection off the different developer events that are available in the Stockholm area. The events in the calendar should be geared towards developers and not be focused on product marketing/sales.\n\nKinds of events that fit:\n- Conferences\n- User group meetings\n- Workshops\n\nKnow of any events that should be in the calendar? Contact us on twitter: @xlson @peter_lind @mikaelsundberg!",
+            "type":"text"
+        },
+        "link":[
+            {
+                "rel":"alternate",
+                "type":"text/html",
+                "href":"https://www.google.com/calendar/embed?src=oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com"
+            },
+            {
+                "rel":"http://schemas.google.com/g/2005#feed",
+                "type":"application/atom+xml",
+                "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic"
+            },
+            {
+                "rel":"http://schemas.google.com/g/2005#batch",
+                "type":"application/atom+xml",
+                "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic/batch"
+            },
+            {
+                "rel":"self",
+                "type":"application/atom+xml",
+                "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic?alt=json&max-results=25"
+            },
+            {
+                "rel":"next",
+                "type":"application/atom+xml",
+                "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic?alt=json&start-index=26&max-results=25"
+            }
+        ],
+        "author":[
+            {
+                "name":{
+                    "$t":"mikael.sundberg82@gmail.com"
+                },
+                "email":{
+                    "$t":"mikael.sundberg82@gmail.com"
+                }
+            }
+        ],
+        "generator":{
+            "$t":"Google Calendar",
+            "version":"1.0",
+            "uri":"http://www.google.com/calendar"
+        },
+        "openSearch$totalResults":{
+            "$t":283
+        },
+        "openSearch$startIndex":{
+            "$t":1
+        },
+        "openSearch$itemsPerPage":{
+            "$t":25
+        },
+        "gCal$timezone":{
+            "value":"Europe/Stockholm"
+        },
+        "gCal$timesCleaned":{
+            "value":0
+        },
+        "gd$where":{
+            "valueString":"Stockholm"
+        },
+        "entry":[
+            {
+                "id":{
+                    "$t":"http://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic/9ebg3ffu93l879igm2q5t8qlj8"
+                },
+                "published":{
+                    "$t":"2012-09-11T15:32:49.000Z"
+                },
+                "updated":{
+                    "$t":"2012-09-11T15:32:49.000Z"
+                },
+                "category":[
+                    {
+                        "scheme":"http://schemas.google.com/g/2005#kind",
+                        "term":"http://schemas.google.com/g/2005#event"
+                    }
+                ],
+                "title":{
+                    "$t":"Gangnam Style Flashmob",
+                    "type":"html"
+                },
+                "summary":{
+                    "$t":"When: Sat Sep 22, 2012\u003cbr\u003e\n\n\u003cbr\u003eWhere: Plattan\n\u003cbr\u003eEvent Status: confirmed",
+                    "type":"html"
+                },
+                "content":{
+                    "$t":"When: Sat Sep 22, 2012\u003cbr /\u003e\n\n\u003cbr /\u003eWhere: Plattan\n\u003cbr /\u003eEvent Status: confirmed\n\u003cbr /\u003eEvent Description: https://www.facebook.com/events/101324233349411/",
+                    "type":"html"
+                },
+                "link":[
+                    {
+                        "rel":"alternate",
+                        "type":"text/html",
+                        "href":"https://www.google.com/calendar/event?eid=OWViZzNmZnU5M2w4NzlpZ20ycTV0OHFsajggb2FybjI5aXIydm0ya2pmYWE1dm9mN3FpY2dAZw",
+                        "title":"alternate"
+                    },
+                    {
+                        "rel":"self",
+                        "type":"application/atom+xml",
+                        "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic/9ebg3ffu93l879igm2q5t8qlj8"
+                    }
+                ],
+                "author":[
+                    {
+                        "name":{
+                            "$t":"Usergroup.se (curated by @xlson @peter_lind @msundb)"
+                        }
+                    }
+                ]
+            },
+            {
+                "id":{
+                    "$t":"http://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic/21lrstoi00ho13ikr9qgqh04tc"
+                },
+                "published":{
+                    "$t":"2012-09-10T20:57:48.000Z"
+                },
+                "updated":{
+                    "$t":"2012-09-10T20:57:48.000Z"
+                },
+                "category":[
+                    {
+                        "scheme":"http://schemas.google.com/g/2005#kind",
+                        "term":"http://schemas.google.com/g/2005#event"
+                    }
+                ],
+                "title":{
+                    "$t":"Lunch Beat Sthlm",
+                    "type":"html"
+                },
+                "summary":{
+                    "$t":"When: Fri Sep 21, 2012 12pm to 1pm&nbsp;\nCEST\u003cbr\u003e\n\n\u003cbr\u003eWhere: Kulturhuset\n\u003cbr\u003eEvent Status: confirmed",
+                    "type":"html"
+                },
+                "content":{
+                    "$t":"When: Fri Sep 21, 2012 12pm to 1pm \nCEST\u003cbr /\u003e\n\n\u003cbr /\u003eWhere: Kulturhuset\n\u003cbr /\u003eEvent Status: confirmed\n\u003cbr /\u003eEvent Description: https://www.facebook.com/events/464744356889749/permalink/464773136886871/",
+                    "type":"html"
+                },
+                "link":[
+                    {
+                        "rel":"alternate",
+                        "type":"text/html",
+                        "href":"https://www.google.com/calendar/event?eid=MjFscnN0b2kwMGhvMTNpa3I5cWdxaDA0dGMgb2FybjI5aXIydm0ya2pmYWE1dm9mN3FpY2dAZw",
+                        "title":"alternate"
+                    },
+                    {
+                        "rel":"self",
+                        "type":"application/atom+xml",
+                        "href":"https://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com/public/basic/21lrstoi00ho13ikr9qgqh04tc"
+                    }
+                ],
+                "author":[
+                    {
+                        "name":{
+                            "$t":"Usergroup.se (curated by @xlson @peter_lind @msundb)"
+                        }
+                    }
+                ]
+            }
+        ]
+    }};
+</script>
+
+</body>
+</html>
