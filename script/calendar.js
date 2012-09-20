@@ -86,10 +86,10 @@ function toConvenientDateFormat(date) {
         return str;
     };
 
-    return date.getDay() + (function() {
-        var day = date.getDay();
+    return date.getDate() + (function() {
+        var day = date.getDate();
 
-        if (day >= 10 || day <= 20) {
+        if (day >= 10 && day <= 20) {
             return ":e";
         }
 
