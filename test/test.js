@@ -46,14 +46,35 @@ window.onload = function() {
             }
         }
 
-        document.write(passed + " passed, " + failed + " failed" + (failed > 0 ? ": " + failures : ""));
+        var description = passed + " passed, " + failed + " failed" + (failed > 0 ? ": " + failures : "");
+
+        try {
+            var resultDiv = document.createElement("div");
+
+            resultDiv.innerText = description;
+
+            with(resultDiv.style) {
+                left = "0px";
+                top = "0px";
+                width = "100%";
+                background = (failed > 0 ? "#FFCCCC" : "#CCFFCC");
+            }
+
+            document.body.appendChild(resultDiv);
+        } catch (e) {
+            alert(description);
+        }
 
         if (window.onTestsCompleted) {
-            window.onTestsCompleted({
-                passed: passed,
-                failed: failed,
-                testReports: testReports
-            });
+            try {
+                window.onTestsCompleted({
+                    passed:passed,
+                    failed:failed,
+                    testReports:testReports
+                });
+            } catch (e) {
+                alert(e.message);
+            }
         }
     });
 };

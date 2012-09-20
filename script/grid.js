@@ -245,18 +245,12 @@ Grid.prototype.selectedCellVisible = function(options) {
 
     update(this._selectedCell, true);
 
-    var onresize = function() {
+    onLayoutRequested(function() {
         // Safari ios quirk...
         document.body.scrollLeft = 0;
         thiz.doLayout();
         update(thiz._selectedCell, true);
-    };
-
-    if ("onorientationchange" in window) {
-        window.onorientationchange = onresize;
-    } else {
-        window.onresize = onresize;
-    }
+    });
 
     this._container.style.overflow = "hidden";
     this.doLayout(); // Cell size changed

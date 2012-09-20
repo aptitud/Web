@@ -11,7 +11,10 @@
     <script type="text/javascript" src="script/grid.js"></script>
     <script type="text/javascript" src="script/navigation.js"></script>
     <script type="text/javascript" src="script/aptitud.js"></script>
+    <script type="text/javascript" src="script/calendar.js"></script>
+
     <link href="aptitud.css" rel="stylesheet" type="text/css">
+
     <script>
         $(document).ready(function () {
             $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
@@ -29,22 +32,9 @@
 <body style="overflow:hidden">
 
 <div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" data-bookmark="kalender" style="background: #FF0096; text-align:center">
-    <div style="margin-left: auto; margin-right: auto;">
-        <img src="images/kalender.png" style="margin-top: 4%; max-width: 50%; max-height: 10%;" />
-
-        <div style="max-width:50%; height:70%; margin-right: auto; margin-left: auto; margin-top: 2%;">
-            <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=400&amp;wkst=2&amp;bgcolor=%23FF0096&amp;src=aptitud.sthlm%40gmail.com&amp;
-        color=%23FF0096&amp;src=%23contacts%40group.v.calendar.google.com&amp;color=%23711616&amp;src=sv.swedish%23holiday%40group.v.calendar.google.com&amp;color=%23FF0096&amp;src=oarn29ir2vm2kjfaa5vof7qicg%40group.calendar.google.com&amp;color=%23FF0096&amp;src=p%23weeknum%40group.v.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FStockholm"
-                    style="width: 100%; height: 100%; ">
-            </iframe>
-        </div>
-
-        <div style="margin-top: 2%;">
-            <a href="#hem">
-                <img src="images/homeknapp_mini.png" style="height: 5%"/>
-            </a>
-        </div>
-    </div>
+    <img id="calendar-header" src="./images/kalender.png"></img>
+    <div id="calendar-container"></div>
+    <a href="#hem"><img class="home" src="./images/homeknapp_mini.png"></img></a>
 </div>
 
 <div id="startPage" class="aptitud-page" data-column="0" data-row="1" data-bookmark="hem" style="background: #FF3333; text-align: center; ">
