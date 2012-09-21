@@ -99,11 +99,20 @@ function launchTour() {
 
     var index = 0;
 
+    var setCursorStyle = function(cursorStyle) {
+        document.body.style.cursor = cursorStyle;
+    }
+
+    setCursorStyle("wait");
+
     var showScreen = function() {
         AptitudContext.getNavigator().navigate(path[index++]);
 
         if (index < path.length) {
             window.setTimeout(showScreen, 6000);
+        }
+        else {
+            setCursorStyle("auto");
         }
     };
 
