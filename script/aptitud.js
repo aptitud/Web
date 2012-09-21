@@ -1,3 +1,4 @@
+/// <reference path="jquery-1.8.1.min.js" />
 // Main context
 //
 
@@ -87,7 +88,17 @@ $(function() {
 // Tour
 //
 
+var isTourRunning = false;
+
 function launchTour() {
+
+    if (isTourRunning) {
+        return;
+    }
+    else {
+        isTourRunning = true;
+    }
+
     var path = [
         "kalender",
         "aptituddagen",
@@ -113,6 +124,7 @@ function launchTour() {
         }
         else {
             setCursorStyle("auto");
+            isTourRunning = false;
         }
     };
 
