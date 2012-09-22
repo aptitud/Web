@@ -110,7 +110,7 @@ div.blog {
 .page-header {
     max-height: 12%;
     max-width: 80%;
-    margin-top: 2%;
+    margin-top: 7%;
     margin-bottom: 2%;
 }
 
@@ -123,4 +123,19 @@ div.blog {
 
 #calendarPage .page-header {
     margin-top: 7%;
+}
+
+.aptitud-day-banner {
+    margin-top: 8%;
+    width: 40%;
+}
+
+#aptitud-day-text, #philosophy-text, #blog-text {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#blog-text {
+    max-height: 60%;
 }
