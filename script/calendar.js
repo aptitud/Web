@@ -27,6 +27,7 @@ Calendar.prototype.loadFeed = function(options) {
                 title : entry.title.$t,
                 content: entry.content.$t,
                 when: { from: new Date(entry.gd$when[0].startTime), to: new Date(entry.gd$when[0].endTime) },
+                link: entry.link[0].href,
                 _definition: result
 
             });
@@ -131,7 +132,7 @@ function cutStringIfNecessary(str, maxLength, suffix) {
     return str;
 }
 
-Calendar.prototype.displayWithRandomizedLayout = function(container) {
+Calendar.prototype.displayWithRandomizedLayout = function(container, options) {
     if (container == null) {
         throw new Error("A valid container must be provided");
     }
@@ -147,6 +148,12 @@ Calendar.prototype.displayWithRandomizedLayout = function(container) {
                 .append($("<div>").addClass("title").text(event.title))
                 .append($("<div>").text(cutStringIfNecessary(event.content, 120, " [...]")))
                 .append($("<div>").addClass("time").text(toConvenientDateFormat(event.when.from))));
+
+        if (options.onClick) {
+            eventView.mousedown(function() {
+                options.onClick({ event: event, view: eventView });
+            });
+        }
 
         eventViews[event.id] = eventView.get(0);
 

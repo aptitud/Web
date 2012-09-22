@@ -11,6 +11,7 @@ Navigator.prototype._monitorHash = function() {
     this._hashMonitor = window.setInterval(function() {
         if (window.location.hash != thiz._lastKnownHash) {
             thiz._lastKnownHash = window.location.hash;
+
             thiz._hashChanged();
         }
     }, 100);
@@ -47,11 +48,13 @@ Navigator.prototype.subscribe = function(name, callback) {
 };
 
 Navigator.prototype.navigate = function(name) {
-    var subscriber = this._subscribers[name];
+    var newHash = "#" + name;
 
-    if (subscriber) {
-        subscriber(name);
+    if (newHash != this._lastKnownHash) {
+        this._lastKnownHash = newHash;
+
+        window.location.hash = this._lastKnownHash;
+
+        this.notifySubscribers(name);
     }
-
-    window.location.hash = this._lastKnownHash = "#" + name;
 };

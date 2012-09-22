@@ -37,7 +37,7 @@ $(function() {
             grid.setCellContent(column, row, element, true);
 
             if (bookmark) {
-                ctx.getNavigator().subscribe(bookmark, function() {
+                ctx.getNavigator().subscribe(bookmark, function tmp() {
                     grid.setSelectedCell({ column: column, row: row });
                 });
 
@@ -63,7 +63,11 @@ $(function() {
     AptitudContext._calendar = (function(ctx) {
         var calendar = new Calendar();
 
-        calendar.displayWithRandomizedLayout(document.getElementById("calendar-container"));
+        calendar.displayWithRandomizedLayout(document.getElementById("calendar-container"), {
+            onClick: function(e) {
+                window.open(e.event.link);
+            }
+        });
 
         calendar.loadFeed({
             calendarId: "oarn29ir2vm2kjfaa5vof7qicg@group.calendar.google.com",
@@ -74,11 +78,6 @@ $(function() {
             sortOrder: "ascending"
         });
     })(AptitudContext);
-
-    // Need dynamic init
-    _initStickers();
-
-
 
     $(".aptitud-page").each(function (index, element) {
         $(element).css("visibility", "visible");
@@ -150,31 +149,6 @@ function createSticker(element) {
     };
 }
 
-function _initStickers() {
-    $(".sticker").each(function(index, element) {
-        createSticker(element);
-
-        rotate(element, nextRandom(1, 5));
-
-        /*var rotation = element.getAttribute("data-rotation");
-
-        if (rotation) {
-            rotate(element, rotation);
-        }
-
-        /*var tape = document.createElement("img");
-        tape.src = "images/tejp.png";
-
-        with (tape.style) {
-            position = "absolute";
-            left = ($(element).position().left + $(element).width()/2) + "px";
-            top = $(element).position().top + "px";
-        }
-
-        element.parentNode.appendChild(tape);*/
-    });
-}
-
 function rotate(element, rotation) {
     element.style["transform"] = "rotate(" + rotation + "deg)";
     element.style["-ms-transform"] = "rotate(" + rotation + "deg)";
@@ -230,7 +204,7 @@ Array.prototype.transform = function(callback) { }
 /** Home buttons **/
 
 $(function() {
-    ["#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
+    ["#blogPage", "#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
         var parent = $(name);
 
         var homeButtonImage = (function() {
