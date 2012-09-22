@@ -89,17 +89,14 @@ div.blog {
 
 #fellow-board {
     position: relative;
-    overflow: hidden;
-    width: 70%;
-    height: 70%;
+    width: 90%;
+    height: 60%;
     margin-left: auto;
     margin-right: auto;
 }
 
 #fellow-board div.portrait {
     position: absolute;
-    width: 24.9%;
-    max-width: 200px;
 }
 
 #fellow-board {
@@ -108,11 +105,17 @@ div.blog {
 
 #fellow-board .portrait-container {
     position: relative;
-    overflow: hidden;
     margin-left: auto;
     margin-right: auto;
 }
 
 #fellow-board .portrait img.portrait {
     width: 100%;
+}
+
+.page-header {
+    max-width: 15%;
+    max-height: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }

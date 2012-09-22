@@ -213,7 +213,6 @@ $(function() {
     var refContainer = $("#fellow-board");
     var container = $("<div>").addClass("portrait-container");
     var portraits = [];
-    var spacingX = 40, spacingY = 40;
 
     refContainer.append(container);
 
@@ -223,17 +222,19 @@ $(function() {
             height: refContainer.height()
         };
 
-        var maxWidth = Math.min(Math.round(refContainer.width() * 0.2), 200), maxHeight = Math.min(Math.round(refContainer.height() * 0.2), 200);
+        var spacingX = layoutSize.width * 0.07, spacingY = layoutSize.height * 0.07;
+
+        var maxWidth = Math.min(Math.round(refContainer.width() * 0.15), 200), maxHeight = Math.min(Math.round(refContainer.height() * 0.15 * Math.pow(2, layoutSize.height / layoutSize.width)), 200);
         var currentX = spacingX, currentY = spacingY, maxY = 0;
         var totalMaxX = 0, totalMaxY = 0;
 
         portraits.forEach(function(portrait) {
             if (maxWidth > maxHeight) {
                 portrait.style.width = maxWidth + "px";
-                portrait.style.height = $(portrait).children("img.portrait").height() + "px";
+                portrait.style.height = maxWidth + "px";
             } else {
                 portrait.style.height = maxHeight + "px";
-                portrait.style.width = $(portrait).children("img.portrait").width() + "px";
+                portrait.style.width = maxHeight + "px"
             }
 
             if (currentX + $(portrait).width() > layoutSize.width) {
@@ -243,8 +244,8 @@ $(function() {
             }
 
             with (portrait.style) {
-                left = (currentX + nextRandom(-20, 20)) + "px";
-                top = (currentY + nextRandom(-20, 20)) + "px";
+                left = Math.max(0, (currentX + nextRandom(-spacingX/2, spacingX/2))) + "px";
+                top = Math.max(0, (currentY + nextRandom(-spacingY/2, spacingY/2))) + "px";
             }
 
             currentX += $(portrait).width() + spacingX;
