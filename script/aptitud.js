@@ -286,7 +286,7 @@ $(function() {
     portraitNames.forEach(function(name) {
         var portrait = document.createElement("img");
         portrait.className = "portrait";
-        portrait.src = "images/medarbetare/" + name + ".png";
+        portrait.src = "images/medarbetare/200/" + name + ".png";
         portrait.onload = function() {
             var portraitLayer = $("<div>").addClass("portrait").css("position", "absolute").append($(portrait));
 
