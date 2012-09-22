@@ -1,6 +1,10 @@
 ﻿@charset "utf-8";
 /* CSS Document */
 
+a {
+    color: black;
+}
+
 div.unselected-page {
     /* opacity: 0.5; */
 }
@@ -144,9 +148,11 @@ img.button, .home-button {
     max-height: 60%;
 }
 
-#startPage img {
+#startPage img.home-image, #start-blog {
     position: absolute;
 }
+
+#start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
 
 @media all and (orientation:landscape) {
     #start-blog { left: 4%; top: 20%; width: 15%; }
@@ -155,14 +161,13 @@ img.button, .home-button {
     #start-calendar { left: 75%; top: 5%; width: 20%; }
     #start-aptitud-day { left: 4%; top: 70%; width: 20%; }
     #start-oredev { left: 40%; top: 70%; width: 20%; }
-    #start-benice { left: 75%; top: 70%; width: 12%; }
+    #start-benice { display: none; left: 75%; top: 70%; width: 12%; }
     #start-we { left: 60%; top: 14%; width: 8%; }
 }
 
 @media all and (orientation:portrait) {
+    #start-blog { left: 4%; top: 2%; width: 25%; }
     #start-logo { left: 20%; top: 30%; width: 60%; }
-
-    #start-blog { left: 4%; top: 4%; height: 20%; }
     #start-30sek { left: 49%; top: 19%; height: 10%; }
     #start-calendar { left: 78%; top: 5%; width: 20%; }
     #start-aptitud-day { left: 4%; top: 78%; height: 20%; }

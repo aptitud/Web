@@ -19,6 +19,9 @@
         $(document).ready(function () {
             $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
                     function (data) {
+
+                        $("#start-blog-preview").html(data.posts[0]["regular-body"]);
+
                         $.each(data.posts, function (i, posts) {
                             var blogtext = this["regular-body"];
                             $('#posts').append(blogtext);
@@ -38,14 +41,35 @@
 
 <div id="startPage" class="aptitud-page" data-column="0" data-row="1" data-bookmark="hem" style="background: #FF3333; text-align: center; ">
 
-        <a href="#blogg"><img id="start-blog" src="images/home/Blogg.png" /></a>
-        <a href="javascript:void(0)" onclick="launchTour();"><img id="start-30sek" src="images/home/30sek.png" /></a>
-        <img id="start-logo" src="images/home/aptitudlogo.png" />
-        <a href="#vi"><img id="start-we" src="images/home/vi.png" /></a>
-        <a href="#kalender"><img id="start-calendar" src="images/home/kalender.png" /></a>
-        <a href="#aptituddagen"><img id="start-aptitud-day" src="images/home/aptituddagen.png" /></a>
-        <a href="http://oredev.org/2012/partners" target="new"><img id="start-oredev" src="images/home/oredev.png" /></a>
-        <img id="start-benice" src="images/home/benice.png" />
+        <a href="#blogg">
+            <div id="start-blog">
+                <div id="start-blog-preview"></div>
+                <img src="images/home/Blogg.png" style="width: 100%;" />
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" onclick="launchTour();">
+            <img class="home-image" id="start-30sek" src="images/home/30sek.png" />
+        </a>
+
+        <img class="home-image" id="start-logo" src="images/home/aptitudlogo.png" />
+
+        <a href="#vi">
+            <img class="home-image" id="start-we" src="images/home/vi.png" />
+        </a>
+
+        <a href="#kalender">
+            <img class="home-image" id="start-calendar" src="images/home/kalender.png" />
+        </a>
+        <a href="#aptituddagen">
+            <img class="home-image" id="start-aptitud-day" src="images/home/aptituddagen.png" />
+        </a>
+
+        <a href="http://oredev.org/2012/partners" target="new">
+            <img class="home-image" id="start-oredev" src="images/home/oredev.png" />
+        </a>
+
+        <img class="home-image" id="start-benice" src="images/home/benice.png" />
 
 </div>
 
