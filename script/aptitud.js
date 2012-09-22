@@ -22,7 +22,7 @@ $(function() {
     AptitudContext = createAptitudContext();
 
     AptitudContext._grid = (function(ctx) {
-        var layoutOptions = { peakAmount: 20, move: move, suppressAnimations: false };
+        var layoutOptions = { peakAmount: 10, move: move, suppressAnimations: false };
 
         var grid = new Grid(document.body, {
             cellSpacing: 1,
@@ -226,6 +226,41 @@ function onLayoutRequested(callback) {
 
 Array.prototype.transform = function(callback) { }
 
+
+/** Home buttons **/
+
+$(function() {
+    ["#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
+        var parent = $(name);
+
+        var homeButtonImage = (function() {
+            var img = document.createElement("img");
+            img.src = "images/homeknapp_mini.png";
+            img.className = "home-button";
+
+            img.onclick = function() {
+                AptitudContext.getNavigator().navigate("hem");
+            };
+
+            return img;
+        })();
+
+        homeButtonImage.onload = function() {
+            var layout = function() {
+                $(homeButtonImage)
+                    .css("left", (parent.width()/2 - homeButtonImage.width/2) + "px")
+                    .css("top", (parent.height() - homeButtonImage.height - 20) + "px");
+            };
+
+            parent.append(homeButtonImage);
+            layout();
+
+            onLayoutRequested(layout);
+        };
+    });
+});
+
+/** Coworker portraits **/
 
 // RUN ON: NAVIGATOR.ONBEFORE("vi")
 

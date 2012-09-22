@@ -72,19 +72,13 @@ div.blog {
     font-weight: bold;
 }
 
-#calendar-header {
-    max-width: 50%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
 #calendar-container {
-    overflow: hidden;
     width: 90%;
-    min-height: 60%;
+    height: 80%;
     margin-right: auto;
     margin-left: auto;
     position: relative;
+    margin-top: 4%;
 }
 
 #fellow-board {
@@ -114,7 +108,19 @@ div.blog {
 }
 
 .page-header {
-    max-height: 15%;
+    max-height: 12%;
+    max-width: 80%;
     margin-top: 2%;
     margin-bottom: 2%;
+}
+
+.home-button {
+    position: absolute;
+    cursor: pointer;
+    cursor: hand;
+
+}
+
+#calendarPage .page-header {
+    margin-top: 7%;
 }

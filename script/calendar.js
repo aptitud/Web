@@ -104,6 +104,33 @@ function toConvenientDateFormat(date) {
 
 }
 
+function cutStringIfNecessary(str, maxLength, suffix) {
+    if (str.length < maxLength) {
+        return str;
+    }
+
+    var done = false;
+
+    str = str.substring(0, maxLength);
+
+    for (var i = str.length - 1; i >= 0 && !done; i--) {
+        switch (str.charAt(i)) {
+            case ' ':
+            case '\t':
+            case '\n':
+            case '\r':
+                str = str.substring(0, i);
+                done = true;
+        }
+    }
+
+    if (suffix) {
+        str = str + suffix;
+    }
+
+    return str;
+}
+
 Calendar.prototype.displayWithRandomizedLayout = function(container) {
     if (container == null) {
         throw new Error("A valid container must be provided");
@@ -118,7 +145,7 @@ Calendar.prototype.displayWithRandomizedLayout = function(container) {
             .css("position", "absolute")
             .append($("<div>").addClass("content")
                 .append($("<div>").addClass("title").text(event.title))
-                .append($("<div>").text(event.content))
+                .append($("<div>").text(cutStringIfNecessary(event.content, 120, " [...]")))
                 .append($("<div>").addClass("time").text(toConvenientDateFormat(event.when.from))));
 
         eventViews[event.id] = eventView.get(0);

@@ -126,6 +126,14 @@
                 assertEquals(3, addedEvents.length);
             },
 
+            testCutText: function() {
+                var text = "Sample text that can be cut";
+
+                assertEquals(text, cutStringIfNecessary(text, 200));
+                assertEquals("Sample text", cutStringIfNecessary(text, 14));
+                assertEquals("Sample text [...]", cutStringIfNecessary(text, 14, " [...]"));
+            },
+
             _loadSampleCalendarData: function() {
                 this._calendar._loadURL = function(url, callback) {
                     assertTrue(url.indexOf("aptitud-test") != -1);
