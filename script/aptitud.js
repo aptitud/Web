@@ -131,7 +131,11 @@ function createSticker(element) {
 
 function _initStickers() {
     $(".sticker").each(function(index, element) {
-        var rotation = element.getAttribute("data-rotation");
+        createSticker(element);
+
+        rotate(element, nextRandom(1, 5));
+
+        /*var rotation = element.getAttribute("data-rotation");
 
         if (rotation) {
             rotate(element, rotation);
@@ -162,8 +166,25 @@ function rotate(element, rotation) {
 //
 
 // Not possible to provide seed in JavaScript (?). Just keep it simple, not important...
-var randoms = [0.3, 1, 0.97, 0.66, 0.97, 0.61, 0.39, 0.25, 0.01, 0.83, 0.72, 0.62, 0.04, 0.12, 0.37, 0.85, 0.64, 0.61, 0.69, 0.53, 0.76, 0.68, 0.51, 0.43, 0.48, 0.45, 0.65, 0.12, 0.01, 0.37, 0.43, 0.05, 0.62, 0.7, 0.44, 0.41, 0.41, 0.12, 0.04, 0.98, 0.48, 0.82, 0.37, 0.82, 0.98, 0.66, 0.5, 0.78, 0.11, 0.25, 0.79, 0.52, 0.1, 0.7, 0.26, 0.55, 0.94, 0.16, 0.82, 0.38, 0.88, 0.76, 0.31, 0.72, 0.13, 0.37, 0.43, 0.06, 0.12, 0.04, 0.14, 0.76, 0.48, 0.28, 0.05, 0.51, 0.8, 0.75, 0.82, 0.39, 0.87, 0.19, 0.79, 0.51, 0, 0.22, 0.36, 0.35, 0.46, 0.11, 0.84, 0.28, 0.15, 0.11, 0.98, 0.3, 0.89, 0.29, 0.93, 0.02, 0.61, 0.31, 0.07, 0.46, 0.24, 0.18, 0.67, 0.61, 0.93, 0.27, 0.73, 0.77, 0.94, 0.17, 0.8, 0.76, 0.96, 0.3, 0.74, 0.67, 0.7, 0.86, 0.73, 0.68, 0.55, 0.5, 0.83, 0.13, 0.66, 0.86, 0.97, 0.5, 0.2, 0.64, 0.42, 0.48, 0.9, 0.4, 0.1, 0.25, 0.85, 0.32, 0.5, 0.63, 0.84, 0.67, 0.06, 0.67, 0.49, 0.33, 0.53, 0.44, 0.3, 0.41, 0.7, 0.29, 0.31, 0.65, 0.13, 0.51, 0.15, 0.34, 0.25, 0.35, 0.76, 0.33, 0.63, 0.29, 0.09, 0.53, 0.68, 0.41, 0.22, 0.26, 0.25, 0.27, 0.18, 0, 0.57, 0.1, 0.95, 0.35, 0.26, 0.22, 0.45, 0.57, 0.28, 0.52, 0.44, 0.19, 0.13, 0.71, 0.94, 0.99, 0.45, 0.6, 0.84, 0.15, 0.42, 0.05];
+var randoms = [
+    0.3, 1, 0.97, 0.66, 0.97, 0.61, 0.39, 0.25, 0.01, 0.83, 0.72, 0.62, 0.04, 0.12, 0.37,
+    0.85, 0.64, 0.61, 0.69, 0.53, 0.76, 0.68, 0.51, 0.43, 0.48, 0.45, 0.65, 0.12, 0.01,
+    0.37, 0.43, 0.05, 0.62, 0.7, 0.44, 0.41, 0.41, 0.12, 0.04, 0.98, 0.48, 0.82, 0.37,
+    0.82, 0.98, 0.66, 0.5, 0.78, 0.11, 0.25, 0.79, 0.52, 0.1, 0.7, 0.26, 0.55, 0.94,
+    0.16, 0.82, 0.38, 0.88, 0.76, 0.31, 0.72, 0.13, 0.37, 0.43, 0.06, 0.12, 0.04, 0.14,
+    0.76, 0.48, 0.28, 0.05, 0.51, 0.8, 0.75, 0.82, 0.39, 0.87, 0.19, 0.79, 0.51, 0, 0.22,
+    0.36, 0.35, 0.46, 0.11, 0.84, 0.28, 0.15, 0.11, 0.98, 0.3, 0.89, 0.29, 0.93, 0.02, 0.61,
+    0.31, 0.07, 0.46, 0.24, 0.18, 0.67, 0.61, 0.93, 0.27, 0.73, 0.77, 0.94, 0.17, 0.8, 0.76,
+    0.96, 0.3, 0.74, 0.67, 0.7, 0.86, 0.73, 0.68, 0.55, 0.5, 0.83, 0.13, 0.66, 0.86, 0.97,
+    0.5, 0.2, 0.64, 0.42, 0.48, 0.9, 0.4, 0.1, 0.25, 0.85, 0.32, 0.5, 0.63, 0.84, 0.67, 0.06,
+    0.67, 0.49, 0.33, 0.53, 0.44, 0.3, 0.41, 0.7, 0.29, 0.31, 0.65, 0.13, 0.51, 0.15, 0.34,
+    0.25, 0.35, 0.76, 0.33, 0.63, 0.29, 0.09, 0.53, 0.68, 0.41, 0.22, 0.26, 0.25, 0.27, 0.18,
+    0, 0.57, 0.1, 0.95, 0.35, 0.26, 0.22, 0.45, 0.57, 0.28, 0.52, 0.44, 0.19, 0.13, 0.71, 0.94,
+    0.99, 0.45, 0.6, 0.84, 0.15, 0.42, 0.05
+];
+
 var currentRandom = 0;
+
 var nextRandom = function (min, max) {
     return min + (max - min) * randoms[currentRandom++ % randoms.length];
 };
@@ -181,3 +202,84 @@ window["onorientationchange" in window ? "onorientationchange" : "onresize"] = f
 function onLayoutRequested(callback) {
     window._layoutCallbacks.push(callback);
 }
+
+Array.prototype.transform = function(callback) { }
+
+
+// RUN ON: NAVIGATOR.ONBEFORE("vi")
+
+$(function() {
+
+    var refContainer = $("#fellow-board");
+    var container = $("<div>").addClass("portrait-container");
+    var portraits = [];
+    var spacingX = 40, spacingY = 40;
+
+    refContainer.append(container);
+
+    var layout = function() {
+        var layoutSize = {
+            width: refContainer.width(),
+            height: refContainer.height()
+        };
+
+        var maxWidth = Math.min(Math.round(refContainer.width() * 0.2), 200), maxHeight = Math.min(Math.round(refContainer.height() * 0.2), 200);
+        var currentX = spacingX, currentY = spacingY, maxY = 0;
+        var totalMaxX = 0, totalMaxY = 0;
+
+        portraits.forEach(function(portrait) {
+            if (maxWidth > maxHeight) {
+                portrait.style.width = maxWidth + "px";
+                portrait.style.height = $(portrait).children("img.portrait").height() + "px";
+            } else {
+                portrait.style.height = maxHeight + "px";
+                portrait.style.width = $(portrait).children("img.portrait").width() + "px";
+            }
+
+            if (currentX + $(portrait).width() > layoutSize.width) {
+                currentX = spacingX;
+                currentY += maxY + spacingY;
+                maxY = 0;
+            }
+
+            with (portrait.style) {
+                left = (currentX + nextRandom(-20, 20)) + "px";
+                top = (currentY + nextRandom(-20, 20)) + "px";
+            }
+
+            currentX += $(portrait).width() + spacingX;
+
+            maxY = Math.max(maxY, $(portrait).height());
+
+            totalMaxX = Math.max(currentX, totalMaxX);
+            totalMaxY = Math.max(currentY + maxY, totalMaxY);
+        });
+
+        container.css("width", totalMaxX + "px");
+        container.css("height", totalMaxY + "px");
+    };
+
+    var portraitNames = ["andlow", "andnil", "davblo", "fresta", "gusdah", "medarb1_200pix", "medarb2_200pix", "tomnas"];
+
+    portraitNames.forEach(function(name) {
+        var portrait = document.createElement("img");
+        portrait.className = "portrait";
+        portrait.src = "images/medarbetare/" + name + ".png";
+        portrait.onload = function() {
+            var portraitLayer = $("<div>").addClass("portrait").css("position", "absolute").append($(portrait));
+
+            portraits.push(portraitLayer.get(0));
+
+            createSticker(portraitLayer.get(0));
+            rotate(portraitLayer.get(0), nextRandom(-4, 4));
+
+            container.append(portraitLayer);
+
+            if (portraits.length == portraitNames.length) {
+                layout();
+            }
+        }
+    });
+
+    onLayoutRequested(layout);
+});

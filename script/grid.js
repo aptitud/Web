@@ -235,7 +235,27 @@ Grid.prototype.selectedCellVisible = function(options) {
 
         var mover = (suppressAnimation ? setLocation : options.move);
 
-        mover(thiz._gridLayer, -positionInGrid.left + padding.leftAndRight, -positionInGrid.top + padding.topAndBottom, { timeout: 200 });
+        var offsetX = (function() {
+            if (selectedCell.column == 0) {
+                return -options.peakAmount + 1;
+            } else if (selectedCell.column == 1) {
+                return options.peakAmount - 1;
+            }
+
+            return 0;
+        })();
+
+        var offsetY = (function() {
+            if (selectedCell.row == 0) {
+                return -options.peakAmount + 1;
+            } else if (selectedCell.row == 2) {
+                return options.peakAmount - 1;
+            }
+
+            return 0;
+        })();
+
+        mover(thiz._gridLayer, -positionInGrid.left + padding.leftAndRight + offsetX, -positionInGrid.top + padding.topAndBottom + offsetY, { timeout: 200 });
 
         thiz._gridLayer.style.width = pixels((cellSize.width + thiz._options.cellSpacing) * dimensions.columns);
         thiz._gridLayer.style.height = pixels((cellSize.height + thiz._options.cellSpacing) * dimensions.rows);

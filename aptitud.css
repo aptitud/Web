@@ -86,3 +86,33 @@ div.blog {
     margin-left: auto;
     position: relative;
 }
+
+#fellow-board {
+    position: relative;
+    overflow: hidden;
+    width: 70%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fellow-board div.portrait {
+    position: absolute;
+    width: 24.9%;
+    max-width: 200px;
+}
+
+#fellow-board {
+    text-align: center;
+}
+
+#fellow-board .portrait-container {
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fellow-board .portrait img.portrait {
+    width: 100%;
+}
