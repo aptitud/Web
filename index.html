@@ -1,7 +1,6 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
     <title>Aptitud</title>
@@ -14,32 +13,12 @@
     <script type="text/javascript" src="script/calendar.js"></script>
 
     <link href="aptitud.css" rel="stylesheet" type="text/css">
-
-    <script>
-        $(document).ready(function () {
-            $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
-                    function (data) {
-
-                        var text = data.posts[0]["regular-body"];
-                        var bloggPreviewElement = $("#start-blog-preview");
-
-                        // This is one way to remove html...
-                        bloggPreviewElement.css("visibility", "hidden");
-                        bloggPreviewElement.html(text);
-                        bloggPreviewElement.text(bloggPreviewElement.text());
-                        bloggPreviewElement.css("visibility", "visible");
-
-                        $.each(data.posts, function (i, posts) {
-                            var blogtext = this["regular-body"];
-                            $('#posts').append(blogtext);
-                        });
-                    });
-        });
-    </script>
 </head>
 
 
-<body style="overflow:hidden">
+<body>
+
+<div id="viewport">
 
 <div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" data-bookmark="kalender" style="background: #FF0096; text-align:center">
     <img class="page-header" src="./images/kalender.png"></img>
@@ -148,6 +127,6 @@
     </div>
 </div>
 
-
+</div>
 </body>
 </html>

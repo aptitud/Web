@@ -45,7 +45,7 @@ Grid.prototype._configureGridLayer = function() {
         overflow = "hidden";
     }
 
-    document.body.appendChild(this._gridLayer);
+    this._container.appendChild(this._gridLayer);
 };
 
 Grid.prototype.remove = function() {

@@ -24,7 +24,7 @@ $(function() {
     AptitudContext._grid = (function(ctx) {
         var layoutOptions = { peakAmount: 10, move: move, suppressAnimations: false };
 
-        var grid = new Grid(document.body, {
+        var grid = new Grid(document.getElementById("viewport"), {
             cellSpacing: 1,
             selectedCell: { column: 0, row: 1 }
         });
@@ -79,6 +79,15 @@ $(function() {
         });
     })(AptitudContext);
 
+
+    /*var updateViewport = function() {
+        $("#viewport").css("left", "0px").css("top", "0px").css("width", $(window).width() + "px").css("height", $(window).height() + "px");
+    };
+
+    onLayoutRequested(updateViewport);
+
+    updateViewport();*/
+
     $(".aptitud-page").each(function (index, element) {
         $(element).css("visibility", "visible");
     });
@@ -111,7 +120,7 @@ function launchTour() {
 
     var setCursorStyle = function(cursorStyle) {
         document.body.style.cursor = cursorStyle;
-    }
+    };
 
     setCursorStyle("wait");
 
@@ -188,17 +197,41 @@ var nextRandom = function (min, max) {
 
 window._layoutCallbacks = [];
 
-window["onorientationchange" in window ? "onorientationchange" : "onresize"] = function() {
+function updateLayout() {
     window._layoutCallbacks.forEach(function(callback) {
         callback();
     });
+}
+
+window["onorientationchange" in window ? "onorientationchange" : "onresize"] = function() {
+    updateLayout();
 };
 
 function onLayoutRequested(callback) {
     window._layoutCallbacks.push(callback);
 }
 
-Array.prototype.transform = function(callback) { }
+/** Blogg */
+
+$(function() {
+    $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
+        function (data) {
+
+            var text = data.posts[0]["regular-body"];
+            var bloggPreviewElement = $("#start-blog-preview");
+
+            // This is one way to remove html...
+            bloggPreviewElement.css("visibility", "hidden");
+            bloggPreviewElement.html(text);
+            bloggPreviewElement.text(bloggPreviewElement.text());
+            bloggPreviewElement.css("visibility", "visible");
+
+            $.each(data.posts, function (i, posts) {
+                var blogtext = this["regular-body"];
+                $('#posts').append(blogtext);
+            });
+        });
+});
 
 
 /** Home buttons **/
