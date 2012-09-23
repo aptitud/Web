@@ -341,7 +341,7 @@ $(function() {
     onLayoutRequested(layout);
 });
 
-$(function mainLayout() {
+/* $(function mainLayout() {
     var startPage = $("#startPage");
     var logo = $("#start-logo");
     var fb = $("#home-fb"), twitter = $("#home-twitter"), linkedin = $("#home-linkedin");
@@ -411,5 +411,8 @@ $(function mainLayout() {
     };
 
     onLayoutRequested(layout);
-    layout();
 });
+
+$(function() {
+    updateLayout();
+});*/

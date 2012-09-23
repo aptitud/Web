@@ -153,7 +153,6 @@ img.button, .home-button {
     max-height: 60%;
 }
 
-/*
 #startPage img.home-image, #start-blog {
     position: absolute;
 }
@@ -185,9 +184,8 @@ img.button, .home-button {
     #start-benice { left: 75%; top: 70%; width: 12%; }
     #start-we { left: 65%; top: 17%; width: 13%; }
 }
-*/
 
-#start-blog { max-width: 15%; max-height: 60%;}
+/*#start-blog { max-width: 15%; max-height: 60%;}
 #start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
 .home-image, #start-blog { position: absolute; }
 #start-logo { position: absolute; max-width: 43%; max-height: 43%; }
@@ -197,4 +195,4 @@ img.button, .home-button {
 #start-calendar { max-width: 15%; }
 #start-aptitud-day { max-width: 20%; }
 #start-oredev { max-width: 20%; max-height: 25%; }
-#start-benice { max-width: 15%; }
+#start-benice { max-width: 15%; }*/
