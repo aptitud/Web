@@ -20,7 +20,14 @@
             $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
                     function (data) {
 
-                        $("#start-blog-preview").html(data.posts[0]["regular-body"]);
+                        var text = data.posts[0]["regular-body"];
+                        var bloggPreviewElement = $("#start-blog-preview");
+
+                        // This is one way to remove html...
+                        bloggPreviewElement.css("visibility", "hidden");
+                        bloggPreviewElement.html(text);
+                        bloggPreviewElement.text(bloggPreviewElement.text());
+                        bloggPreviewElement.css("visibility", "visible");
 
                         $.each(data.posts, function (i, posts) {
                             var blogtext = this["regular-body"];
