@@ -157,18 +157,60 @@ img.button, .home-button {
     max-height: 60%;
 }
 
-#startPage img.home-image, #start-blog {
+#startPage img.home-image, #start-blog, #start-aptitud-day, #start-calendar {
     position: absolute;
 }
 
-#start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
+#start-blog-preview { 
+		position: absolute; 
+		overflow: hidden; 
+		left: 8%; 
+		top: 42%; 
+		width: 82%; 
+		height: 42%; 
+		text-align: left; 
+		font-size: 8pt; }
+
+#start-calendar-preview { 
+		position: absolute; 
+		overflow: hidden; 
+		left: 20%; 
+		top: 25%; 
+		width: 65%; 
+		height: 65%; 
+		text-align: left; 
+		font-size: 10pt; 
+		z-index:101; }		
+		
+#start-aptitud-day-date-preview { 
+		position: absolute; 
+		overflow: hidden; 
+		left: 33%; 
+		top: 73%; 
+		width: 30%; 
+		height: 6%; 
+		text-align: left; 
+		font-size: 8pt; 
+		z-index:100; }
+
+#start-aptitud-day-theme-preview { 
+		position: absolute; 
+		overflow: hidden; 
+		left: 21.5%; 
+		top: 82%; 
+		width: 30%; 
+		height: 6%; 
+		text-align: left; 
+		font-size: 8pt; 
+		z-index:100; }
+
 
 @media all and (orientation:landscape) {
     #start-blog { left: 8%; top: 26%; width: 15%; }
     #start-30sek { left: 49%; top: 17%; height: 14%; }
     #start-logo { left: 30%; top: 25%; width: 40%; }
     #start-calendar { left: 75%; top: 3%; width: 18%; }
-    #start-aptitud-day { left: 10%; top: 70%; width: 20%; }
+    #start-aptitud-day { left: 10%; top: 70%; width: 20%;}
     #start-oredev { left: 40%; top: 70%; width: 20%; }
     #start-benice { left: 73%; top: 68%; width: 12%; }
     #start-we { left: 60%; top: 14%; width: 8%; }
