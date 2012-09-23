@@ -146,8 +146,10 @@ Grid.prototype.setSelectedCell = function(location) {
 
 Grid.prototype.getViewPortSize = function() {
     return {
-        width: $(this._container == document.body ? window : this._container).width(),
-        height: $(this._container == document.body ? window : this._container).height()
+        // width: $(this._container == document.body ? window : this._container).width(),
+        // height: $(this._container == document.body ? window : this._container).height()
+        width: $(window).width(),
+        height: $(window).height()
     }
 };
 

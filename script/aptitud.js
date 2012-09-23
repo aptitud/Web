@@ -30,8 +30,8 @@ $(function() {
         });
 
         $(".aptitud-page").each(function (index, element) {
-            var column = element.getAttribute("data-column");
-            var row = element.getAttribute("data-row");
+            var column = parseInt(element.getAttribute("data-column"));
+            var row = parseInt(element.getAttribute("data-row"));
             var bookmark = element.getAttribute("data-bookmark");
 
             grid.setCellContent(column, row, element, true);
@@ -42,7 +42,11 @@ $(function() {
                 });
 
                 $(element).mousedown(function() {
-                    ctx.getNavigator().navigate(bookmark);
+                    var selectedCell = grid.getSelectedCell();
+
+                    if (selectedCell.column != column || selectedCell.row != row) {
+                        ctx.getNavigator().navigate(bookmark);
+                    }
                 });
             }
         });
@@ -79,18 +83,7 @@ $(function() {
         });
     })(AptitudContext);
 
-
-    /*var updateViewport = function() {
-        $("#viewport").css("left", "0px").css("top", "0px").css("width", $(window).width() + "px").css("height", $(window).height() + "px");
-    };
-
-    onLayoutRequested(updateViewport);
-
-    updateViewport();*/
-
-    $(".aptitud-page").each(function (index, element) {
-        $(element).css("visibility", "visible");
-    });
+    $("#viewport").css("visibility", "visible");
 });
 
 // Tour
