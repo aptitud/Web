@@ -15,6 +15,10 @@ a {
     color: black;
 }
 
+img {
+    border:none;
+}
+
 div.unselected-page {
     /* opacity: 0.5; */
 }
