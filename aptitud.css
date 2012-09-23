@@ -153,6 +153,7 @@ img.button, .home-button {
     max-height: 60%;
 }
 
+/*
 #startPage img.home-image, #start-blog {
     position: absolute;
 }
@@ -161,13 +162,17 @@ img.button, .home-button {
 
 @media all and (orientation:landscape) {
     #start-blog { left: 4%; top: 20%; width: 15%; }
-    #start-30sek { left: 49%; top: 19%; height: 14%; }
+    #start-30sek { left: 49%; top: 17%; height: 14%; }
     #start-logo { left: 30%; top: 25%; width: 40%; }
     #start-calendar { left: 75%; top: 5%; width: 20%; }
     #start-aptitud-day { left: 4%; top: 70%; width: 20%; }
     #start-oredev { left: 40%; top: 70%; width: 20%; }
-    #start-benice { display: none; left: 75%; top: 70%; width: 12%; }
+    #start-benice { left: 79%; top: 70%; width: 12%; }
     #start-we { left: 60%; top: 14%; width: 8%; }
+
+    #home-fb { left: 32.5%; top: 59%; width: 3%; }
+    #home-twitter { left: 36%; top: 61.5%; width: 3%; }
+    #home-linkedin { left: 39.5%; top: 64%; width: 3%; }
 }
 
 @media all and (orientation:portrait) {
@@ -177,6 +182,19 @@ img.button, .home-button {
     #start-calendar { left: 78%; top: 5%; width: 20%; }
     #start-aptitud-day { left: 4%; top: 78%; height: 20%; }
     #start-oredev { left: 64%; top: 70%; width: 35%; }
-    #start-benice { display: none; left: 75%; top: 70%; width: 12%; }
+    #start-benice { left: 75%; top: 70%; width: 12%; }
     #start-we { left: 65%; top: 17%; width: 13%; }
 }
+*/
+
+#start-blog { max-width: 15%; max-height: 60%;}
+#start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
+.home-image, #start-blog { position: absolute; }
+#start-logo { position: absolute; max-width: 43%; max-height: 43%; }
+#home-fb, #home-twitter, #home-linkedin { width: 2.5%;  }
+#start-we { max-width: 10%; }
+#start-30sek { max-width: 10%; }
+#start-calendar { max-width: 15%; }
+#start-aptitud-day { max-width: 20%; }
+#start-oredev { max-width: 20%; max-height: 25%; }
+#start-benice { max-width: 15%; }

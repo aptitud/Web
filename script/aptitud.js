@@ -340,3 +340,76 @@ $(function() {
 
     onLayoutRequested(layout);
 });
+
+$(function mainLayout() {
+    var startPage = $("#startPage");
+    var logo = $("#start-logo");
+    var fb = $("#home-fb"), twitter = $("#home-twitter"), linkedin = $("#home-linkedin");
+    var blog = $("#start-blog");
+    var calendar = $("#start-calendar");
+
+    var layout = function() {
+        var containerSize = {
+            width: startPage.width(),
+            height: startPage.height()
+        };
+
+        with(logo) {
+            css("top", (containerSize.height/2 - height()/2) + "px");
+            css("left", (containerSize.width/2 - width()/2) + "px");
+        }
+
+        with(fb) {
+            css("top", (logo.position().top + logo.height() * 0.74) + "px");
+            css("left", (logo.position().left +.01 * containerSize.width * 1.1) + "px")
+        }
+
+        with(twitter) {
+            css("top", (fb.position().top + fb.height() * 0.5) + "px");
+            css("left", (fb.position().left + fb.width() * 1.1) + "px")
+        }
+
+        with (linkedin) {
+            css("top", (twitter.position().top + twitter.height() * 0.5) + "px");
+            css("left", (twitter.position().left + twitter.width() * 1.1) + "px");
+        }
+
+        with (blog) {
+            css("left", (logo.position().left - width() * 1.3) + "px");
+            css("top", (logo.position().top - height()/4) + "px");
+        }
+
+        with ($("#start-we")) {
+            css("left", (logo.position().left + logo.width() - width() * 1.1) + "px");
+            css("top", (logo.position().top - height()) + "px");
+        }
+
+        with($("#start-30sek")) {
+            css("top", (logo.position().top - height() * 0.8) + "px");
+            css("left", (logo.position().left + logo.width()/2 - width()/2) + "px");
+        }
+
+        with(calendar) {
+            css("left", (logo.position().left + logo.width() * 1.1) + "px");
+            css("top", (logo.position().top - height()) + "px");
+        }
+
+        with ($("#start-aptitud-day")) {
+            css("left", blog.position().left + "px");
+            css("top", (blog.position().top + blog.height() + height() * 0.3) + "px");
+        }
+
+        with ($("#start-oredev")) {
+            css("left", logo.position().left + logo.width()/2 - width()/2 + "px");
+            css("top", (logo.position().top + logo.height()) + "px");
+        }
+
+        with ($("#start-benice")) {
+            css("left", (calendar.position().left) + "px");
+            css("top", (calendar.position().top + calendar.height() + height() * 0.2) + "px");
+        }
+    };
+
+    onLayoutRequested(layout);
+    layout();
+});
