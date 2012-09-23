@@ -172,10 +172,10 @@ img.button, .home-button {
     #start-oredev { left: 40%; top: 70%; width: 20%; }
     #start-benice { left: 73%; top: 68%; width: 12%; }
     #start-we { left: 60%; top: 14%; width: 8%; }
-    #home-fb { left: 32.5%; top: 61%; width: 3%; }
-    #home-twitter { left: 36%; top: 63%; width: 3%; }
-    #home-linkedin { left: 39.5%; top: 65%; width: 3%; }
-		#home-klotter { left: 10%; top: 1%; width: 20%; }
+    #start-fb { left: 32.5%; top: 61%; width: 3%; }
+    #start-twitter { left: 36%; top: 63%; width: 3%; }
+    #start-linkedin { left: 39.5%; top: 65%; width: 3%; }
+		#start-klotter { left: 10%; top: 1%; width: 20%; }
 }
 
 @media all and (orientation:portrait) {
