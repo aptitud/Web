@@ -15,7 +15,7 @@ function createAptitudContext() {
         getNavigator: function() { return this._navigator; },
 
         getGrid: function() { return this._grid; }
-    }
+		}
 }
 
 $(function() {
