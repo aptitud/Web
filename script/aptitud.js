@@ -22,7 +22,7 @@ $(function() {
     AptitudContext = createAptitudContext();
 
     AptitudContext._grid = (function(ctx) {
-        var layoutOptions = { peakAmount: 10, move: move, suppressAnimations: false };
+        var layoutOptions = { peakAmount: 20, move: move, suppressAnimations: false };
 
         var grid = new Grid(document.getElementById("viewport"), {
             cellSpacing: 1,
