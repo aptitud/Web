@@ -101,11 +101,11 @@ function launchTour() {
     }
 
     var path = [
-        "kalender",
-        "aptituddagen",
-        "vi",
         "filosofi",
+        "vi",
+        "aptituddagen",
         "blogg",
+        "kalender",
         "hem"
     ];
 
