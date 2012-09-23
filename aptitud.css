@@ -221,14 +221,18 @@ img.button, .home-button {
 }
 
 @media all and (orientation:portrait) {
-    #start-blog { left: 4%; top: 2%; width: 25%; }
+    #start-blog { left: 4%; top: 10%; width: 25%; }
     #start-logo { left: 20%; top: 30%; width: 60%; }
     #start-30sek { left: 49%; top: 19%; height: 10%; }
     #start-calendar { left: 78%; top: 5%; width: 20%; }
-    #start-aptitud-day { left: 4%; top: 78%; height: 20%; }
-    #start-oredev { left: 64%; top: 70%; width: 35%; }
-    #start-benice { left: 75%; top: 70%; width: 12%; }
+    #start-aptitud-day { left: 1%; top: 55%; width: 30%; }
+    #start-oredev { left: 30%; top: 65%; width: 50%; }
+    #start-benice { left: 80%; top: 55%; width: 20%; }
     #start-we { left: 65%; top: 17%; width: 13%; }
+		#start-fb { left: 32.5%; top: 53%; width: 3%; }
+    #start-twitter { left: 36%; top: 55%; width: 3%; }
+    #start-linkedin { left: 39.5%; top: 57%; width: 3%; }
+		#start-klotter { left: 20%; top: 1%; width: 40%; }
 }
 
 /*#start-blog { max-width: 15%; max-height: 60%;}
