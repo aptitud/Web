@@ -180,7 +180,7 @@ img.button, .home-button {
 		height: 65%; 
 		text-align: left; 
 		font-size: 10pt; 
-		z-index:101; }		
+		z-index:100; }		
 		
 #start-aptitud-day-date-preview { 
 		position: absolute; 
@@ -212,7 +212,7 @@ img.button, .home-button {
     #start-calendar { left: 75%; top: 3%; width: 18%; }
     #start-aptitud-day { left: 10%; top: 70%; width: 20%;}
     #start-oredev { left: 40%; top: 70%; width: 20%; }
-    #start-benice { left: 73%; top: 68%; width: 12%; }
+    #start-benice { left: 73%; top: 68%; width: 12%;z-index:101; }
     #start-we { left: 60%; top: 14%; width: 8%; }
     #start-fb { left: 32.5%; top: 61%; width: 3%; }
     #start-twitter { left: 36%; top: 63%; width: 3%; }
