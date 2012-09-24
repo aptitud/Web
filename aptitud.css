@@ -206,33 +206,33 @@ img.button, .home-button {
 
 
 @media all and (orientation:landscape) {
-    #start-blog { left: 15%; top: 54%; width: 15%; }
+    #start-blog { left: 10%; top: 50%; width: 17%; }
     #start-30sek { left: 49%; top: 17%; height: 14%; }
     #start-logo { left: 30%; top: 25%; width: 40%; }
     #start-calendar { left: 75%; top: 3%; width: 21%; }
-    #start-aptitud-day { left: 1%; top: 27%; width: 25%;}
-    #start-oredev { left: 65%; top: 75%; width: 15%; }
+    #start-aptitud-day { left: 0%; top: 17%; width: 29%;}
+    #start-oredev { left: 66%; top: 72%; width: 18%; }
 /*    #start-benice { left: 88%; top: 68%; width: 12%;z-index:101; } */
     #start-we { left: 60%; top: 14%; width: 8%; }
-    #start-fb { left: 40%; top: 85%; width: 3%; }
-    #start-twitter { left: 45%; top: 86%; width: 3%; }
-    #start-linkedin { left: 50%; top: 84%; width: 3%; }
-		#start-klotter { left: 10%; top: 1%; width: 20%; }
+    #start-fb { left: 45%; top: 85%; width: 3%; }
+    #start-twitter { left: 50%; top: 86%; width: 3%; }
+    #start-linkedin { left: 55%; top: 84%; width: 3%; }
+		#start-klotter { left: 25%; top: 1%; width: 20%; }
 }
 
 @media all and (orientation:portrait) {
-    #start-blog { left: 4%; top: 55%; width: 27%; }
-    #start-logo { left: 20%; top: 30%; width: 60%; }
-    #start-30sek { left: 49%; top: 19%; height: 10%; }
-    #start-calendar { left: 78%; top: 5%; width: 22%; }
-    #start-aptitud-day { left: 1%; top: 15%; width: 30%; }
-    #start-oredev { left: 45%; top: 65%; width: 50%; }
+    #start-blog { left: 10%; top: 58%; width: 38%; }
+    #start-logo { left: 30%; top: 38%; width: 40%; }
+    #start-30sek { left: 45%; top: 32%; height: 8%; }
+    #start-calendar { left: 68%; top: 5%; width: 35%; }
+    #start-aptitud-day { left: 1%; top: 15%; width: 50%; }
+    #start-oredev { left: 65%; top: 65%; width: 30%; }
 /*   #start-benice { left: 80%; top: 55%; width: 20%; } */
-    #start-we { left: 65%; top: 17%; width: 13%; }
-		#start-fb { left: 40%; top: 60%; width: 4%; }
-    #start-twitter { left: 46%; top: 61%; width: 4%; }
-    #start-linkedin { left: 52%; top: 59%; width: 4%; }
-		#start-klotter { left: 20%; top: 1%; width: 40%; }
+    #start-we { left: 54%; top: 29%; width: 13%; }
+		#start-fb { left: 10%; top: 45%; width: 5%; }
+    #start-twitter { left: 16%; top: 46%; width: 5%; }
+    #start-linkedin { left: 22%; top: 44%; width: 5%; }
+		#start-klotter { left: 28%; top: 1%; width: 35%; }
 }
 
 /*#start-blog { max-width: 15%; max-height: 60%;}
