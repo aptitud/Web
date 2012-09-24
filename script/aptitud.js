@@ -226,9 +226,9 @@ $(function() {
         });
 });
 
-
+/** Away by ALo**/
 /** Home buttons **/
-
+/**
 $(function() {
     ["#blogPage", "#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
         var parent = $(name);
@@ -259,6 +259,7 @@ $(function() {
         };
     });
 });
+**/
 
 /** Coworker portraits **/
 
