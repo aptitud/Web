@@ -226,7 +226,7 @@ img.button, .home-button {
     #start-fb { left: 45%; top: 85%; width: 3%; }
     #start-twitter { left: 50%; top: 86%; width: 3%; }
     #start-linkedin { left: 55%; top: 84%; width: 3%; }
-		#start-klotter { left: 25%; top: 1%; width: 20%; }
+		#start-klotter { left: 25%; top: 1%; width: 15%; }
 }
 
 @media all and (orientation:portrait) {
@@ -241,7 +241,7 @@ img.button, .home-button {
 		#start-fb { left: 10%; top: 45%; width: 5%; }
     #start-twitter { left: 16%; top: 46%; width: 5%; }
     #start-linkedin { left: 22%; top: 44%; width: 5%; }
-		#start-klotter { left: 28%; top: 1%; width: 35%; }
+		#start-klotter { left: 28%; top: 1%; width: 25%; }
 }
 
 /*#start-blog { max-width: 15%; max-height: 60%;}
