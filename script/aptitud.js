@@ -6,27 +6,31 @@ var AptitudContext = null;
 
 function createAptitudContext() {
     return {
-        _navigator: new Navigator(),
+        _navigator:new Navigator(),
 
-        _grid: null,
+        _grid:null,
 
-        _calendar: null,
+        _calendar:null,
 
-        getNavigator: function() { return this._navigator; },
+        getNavigator:function () {
+            return this._navigator;
+        },
 
-        getGrid: function() { return this._grid; }
-		}
+        getGrid:function () {
+            return this._grid;
+        }
+    }
 }
 
-$(function() {
+$(function () {
     AptitudContext = createAptitudContext();
 
-    AptitudContext._grid = (function(ctx) {
-        var layoutOptions = { peakAmount: 20, move: move, suppressAnimations: false };
+    AptitudContext._grid = (function (ctx) {
+        var layoutOptions = { peakAmount:20, move:move, suppressAnimations:false };
 
         var grid = new Grid(document.getElementById("viewport"), {
-            cellSpacing: 1,
-            selectedCell: { column: 0, row: 1 }
+            cellSpacing:1,
+            selectedCell:{ column:0, row:1 }
         });
 
         $(".aptitud-page").each(function (index, element) {
@@ -38,10 +42,10 @@ $(function() {
 
             if (bookmark) {
                 ctx.getNavigator().subscribe(bookmark, function tmp() {
-                    grid.setSelectedCell({ column: column, row: row });
+                    grid.setSelectedCell({ column:column, row:row });
                 });
 
-                $(element).mousedown(function() {
+                $(element).mousedown(function () {
                     var selectedCell = grid.getSelectedCell();
 
                     if (selectedCell.column != column || selectedCell.row != row) {
@@ -64,22 +68,32 @@ $(function() {
         return grid;
     })(AptitudContext);
 
-    AptitudContext._calendar = (function(ctx) {
+    AptitudContext._calendar = (function (ctx) {
         var calendar = new Calendar();
 
+        calendar.onEventsAdded(function(events) {
+            events.forEach(function(event) {
+                $("#start-calendar-preview").append(
+                    $("<div>").addClass("start-calendar-feed")
+                        .append($("<div>").addClass("title").text(event.title))
+                        .append($("<div>").addClass("content").text(cutStringIfNecessary(event.content, 120, " [...]")))
+                )
+            });
+        });
+
         calendar.displayWithRandomizedLayout(document.getElementById("calendar-container"), {
-            onClick: function(e) {
+            onClick:function (e) {
                 window.open(e.event.link);
             }
         });
 
         calendar.loadFeed({
-            calendarId: "oarn29ir2vm2kjfaa5vof7qicg@group.calendar.google.com",
-            orderBy: "starttime",
-            maxResults: 5,
-            futureEvents: true,
-            singleEvents: true,
-            sortOrder: "ascending"
+            calendarId:"oarn29ir2vm2kjfaa5vof7qicg@group.calendar.google.com",
+            orderBy:"starttime",
+            maxResults:5,
+            futureEvents:true,
+            singleEvents:true,
+            sortOrder:"ascending"
         });
     })(AptitudContext);
 
@@ -111,13 +125,13 @@ function launchTour() {
 
     var index = 0;
 
-    var setCursorStyle = function(cursorStyle) {
+    var setCursorStyle = function (cursorStyle) {
         document.body.style.cursor = cursorStyle;
     };
 
     setCursorStyle("wait");
 
-    var showScreen = function() {
+    var showScreen = function () {
         AptitudContext.getNavigator().navigate(path[index++]);
 
         if (index < path.length) {
@@ -140,10 +154,10 @@ function createSticker(element) {
 
     tejp.src = "images/tejp.png";
 
-    tejp.onload = function() {
-        with(tejp.style) {
-            left = ($(element).width() / 2 - tejp.width/2) + "px";
-            top = (-tejp.height/2) + "px";
+    tejp.onload = function () {
+        with (tejp.style) {
+            left = ($(element).width() / 2 - tejp.width / 2) + "px";
+            top = (-tejp.height / 2) + "px";
             position = "absolute";
         }
 
@@ -191,12 +205,12 @@ var nextRandom = function (min, max) {
 window._layoutCallbacks = [];
 
 function updateLayout() {
-    window._layoutCallbacks.forEach(function(callback) {
+    window._layoutCallbacks.forEach(function (callback) {
         callback();
     });
 }
 
-window["onorientationchange" in window ? "onorientationchange" : "onresize"] = function() {
+window["onorientationchange" in window ? "onorientationchange" : "onresize"] = function () {
     updateLayout();
 };
 
@@ -206,7 +220,7 @@ function onLayoutRequested(callback) {
 
 /** Blogg */
 
-$(function() {
+$(function () {
     $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?callback=?",
         function (data) {
 
@@ -229,43 +243,43 @@ $(function() {
 /** Away by ALo**/
 /** Home buttons **/
 /**
-$(function() {
-    ["#blogPage", "#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
-        var parent = $(name);
+ $(function() {
+ ["#blogPage", "#calendarPage", "#aptitudDayPage", "#fellowPage", "#philosophyPage"].forEach(function(name) {
+ var parent = $(name);
 
-        var homeButtonImage = (function() {
-            var img = document.createElement("img");
-            img.src = "images/homeknapp_mini.png";
-            img.className = "home-button";
+ var homeButtonImage = (function() {
+ var img = document.createElement("img");
+ img.src = "images/homeknapp_mini.png";
+ img.className = "home-button";
 
-            img.onclick = function() {
-                AptitudContext.getNavigator().navigate("hem");
-            };
+ img.onclick = function() {
+ AptitudContext.getNavigator().navigate("hem");
+ };
 
-            return img;
-        })();
+ return img;
+ })();
 
-        homeButtonImage.onload = function() {
-            var layout = function() {
-                $(homeButtonImage)
-                    .css("left", (parent.width()/2 - homeButtonImage.width/2) + "px")
-                    .css("top", (parent.height() - homeButtonImage.height - 20) + "px");
-            };
+ homeButtonImage.onload = function() {
+ var layout = function() {
+ $(homeButtonImage)
+ .css("left", (parent.width()/2 - homeButtonImage.width/2) + "px")
+ .css("top", (parent.height() - homeButtonImage.height - 20) + "px");
+ };
 
-            parent.append(homeButtonImage);
-            layout();
+ parent.append(homeButtonImage);
+ layout();
 
-            onLayoutRequested(layout);
-        };
-    });
-});
-**/
+ onLayoutRequested(layout);
+ };
+ });
+ });
+ **/
 
 /** Coworker portraits **/
 
 // RUN ON: NAVIGATOR.ONBEFORE("vi")
 
-$(function() {
+$(function () {
 
     var refContainer = $("#fellow-board");
     var container = $("<div>").addClass("portrait-container");
@@ -273,10 +287,10 @@ $(function() {
 
     refContainer.append(container);
 
-    var layout = function() {
+    var layout = function () {
         var layoutSize = {
-            width: refContainer.width(),
-            height: refContainer.height()
+            width:refContainer.width(),
+            height:refContainer.height()
         };
 
         var spacingX = layoutSize.width * 0.07, spacingY = layoutSize.height * 0.07;
@@ -285,7 +299,7 @@ $(function() {
         var currentX = spacingX, currentY = spacingY, maxY = 0;
         var totalMaxX = 0, totalMaxY = 0;
 
-        portraits.forEach(function(portrait) {
+        portraits.forEach(function (portrait) {
             if (maxWidth > maxHeight) {
                 portrait.style.width = maxWidth + "px";
                 portrait.style.height = maxWidth + "px";
@@ -301,8 +315,8 @@ $(function() {
             }
 
             with (portrait.style) {
-                left = Math.max(0, (currentX + nextRandom(-spacingX/2, spacingX/2))) + "px";
-                top = Math.max(0, (currentY + nextRandom(-spacingY/2, spacingY/2))) + "px";
+                left = Math.max(0, (currentX + nextRandom(-spacingX / 2, spacingX / 2))) + "px";
+                top = Math.max(0, (currentY + nextRandom(-spacingY / 2, spacingY / 2))) + "px";
             }
 
             currentX += $(portrait).width() + spacingX;
@@ -319,11 +333,11 @@ $(function() {
 
     var portraitNames = ["andlow", "andnil", "davblo", "fresta", "gusdah", "medarb1_200pix", "medarb2_200pix", "tomnas"];
 
-    portraitNames.forEach(function(name) {
+    portraitNames.forEach(function (name) {
         var portrait = document.createElement("img");
         portrait.className = "portrait";
         portrait.src = "images/medarbetare/200/" + name + ".png";
-        portrait.onload = function() {
+        portrait.onload = function () {
             var portraitLayer = $("<div>").addClass("portrait").css("position", "absolute").append($(portrait));
 
             portraits.push(portraitLayer.get(0));
@@ -343,77 +357,77 @@ $(function() {
 });
 
 /* $(function mainLayout() {
-    var startPage = $("#startPage");
-    var logo = $("#start-logo");
-    var fb = $("#home-fb"), twitter = $("#home-twitter"), linkedin = $("#home-linkedin");
-    var blog = $("#start-blog");
-    var calendar = $("#start-calendar");
+ var startPage = $("#startPage");
+ var logo = $("#start-logo");
+ var fb = $("#home-fb"), twitter = $("#home-twitter"), linkedin = $("#home-linkedin");
+ var blog = $("#start-blog");
+ var calendar = $("#start-calendar");
 
-    var layout = function() {
-        var containerSize = {
-            width: startPage.width(),
-            height: startPage.height()
-        };
+ var layout = function() {
+ var containerSize = {
+ width: startPage.width(),
+ height: startPage.height()
+ };
 
-        with(logo) {
-            css("top", (containerSize.height/2 - height()/2) + "px");
-            css("left", (containerSize.width/2 - width()/2) + "px");
-        }
+ with(logo) {
+ css("top", (containerSize.height/2 - height()/2) + "px");
+ css("left", (containerSize.width/2 - width()/2) + "px");
+ }
 
-        with(fb) {
-            css("top", (logo.position().top + logo.height() * 0.74) + "px");
-            css("left", (logo.position().left +.01 * containerSize.width * 1.1) + "px")
-        }
+ with(fb) {
+ css("top", (logo.position().top + logo.height() * 0.74) + "px");
+ css("left", (logo.position().left +.01 * containerSize.width * 1.1) + "px")
+ }
 
-        with(twitter) {
-            css("top", (fb.position().top + fb.height() * 0.5) + "px");
-            css("left", (fb.position().left + fb.width() * 1.1) + "px")
-        }
+ with(twitter) {
+ css("top", (fb.position().top + fb.height() * 0.5) + "px");
+ css("left", (fb.position().left + fb.width() * 1.1) + "px")
+ }
 
-        with (linkedin) {
-            css("top", (twitter.position().top + twitter.height() * 0.5) + "px");
-            css("left", (twitter.position().left + twitter.width() * 1.1) + "px");
-        }
+ with (linkedin) {
+ css("top", (twitter.position().top + twitter.height() * 0.5) + "px");
+ css("left", (twitter.position().left + twitter.width() * 1.1) + "px");
+ }
 
-        with (blog) {
-            css("left", (logo.position().left - width() * 1.3) + "px");
-            css("top", (logo.position().top - height()/4) + "px");
-        }
+ with (blog) {
+ css("left", (logo.position().left - width() * 1.3) + "px");
+ css("top", (logo.position().top - height()/4) + "px");
+ }
 
-        with ($("#start-we")) {
-            css("left", (logo.position().left + logo.width() - width() * 1.1) + "px");
-            css("top", (logo.position().top - height()) + "px");
-        }
+ with ($("#start-we")) {
+ css("left", (logo.position().left + logo.width() - width() * 1.1) + "px");
+ css("top", (logo.position().top - height()) + "px");
+ }
 
-        with($("#start-30sek")) {
-            css("top", (logo.position().top - height() * 0.8) + "px");
-            css("left", (logo.position().left + logo.width()/2 - width()/2) + "px");
-        }
+ with($("#start-30sek")) {
+ css("top", (logo.position().top - height() * 0.8) + "px");
+ css("left", (logo.position().left + logo.width()/2 - width()/2) + "px");
+ }
 
-        with(calendar) {
-            css("left", (logo.position().left + logo.width() * 1.1) + "px");
-            css("top", (logo.position().top - height()) + "px");
-        }
+ with(calendar) {
+ css("left", (logo.position().left + logo.width() * 1.1) + "px");
+ css("top", (logo.position().top - height()) + "px");
+ }
 
-        with ($("#start-aptitud-day")) {
-            css("left", blog.position().left + "px");
-            css("top", (blog.position().top + blog.height() + height() * 0.3) + "px");
-        }
+ with ($("#start-aptitud-day")) {
+ css("left", blog.position().left + "px");
+ css("top", (blog.position().top + blog.height() + height() * 0.3) + "px");
+ }
 
-        with ($("#start-oredev")) {
-            css("left", logo.position().left + logo.width()/2 - width()/2 + "px");
-            css("top", (logo.position().top + logo.height()) + "px");
-        }
+ with ($("#start-oredev")) {
+ css("left", logo.position().left + logo.width()/2 - width()/2 + "px");
+ css("top", (logo.position().top + logo.height()) + "px");
+ }
 
-        with ($("#start-benice")) {
-            css("left", (calendar.position().left) + "px");
-            css("top", (calendar.position().top + calendar.height() + height() * 0.2) + "px");
-        }
-    };
+ with ($("#start-benice")) {
+ css("left", (calendar.position().left) + "px");
+ css("top", (calendar.position().top + calendar.height() + height() * 0.2) + "px");
+ }
+ };
 
-    onLayoutRequested(layout);
-});
+ onLayoutRequested(layout);
+ });
 
-$(function() {
-    updateLayout();
-});*/
+ $(function() {
+ updateLayout();
+ });*/

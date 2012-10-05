@@ -1,6 +1,9 @@
 function Calendar(options) {
     this._entries = [];
     this._options = (options ? options : {});
+    this._events = {
+        onEventsAdded: []
+    };
 }
 
 Calendar.prototype.setOptions = function(options) {
@@ -11,6 +14,10 @@ Calendar.prototype.setOptions = function(options) {
 
 Calendar.prototype.getEntries = function() {
     return this._entries;
+};
+
+Calendar.prototype.onEventsAdded = function(callback) {
+    this._events.onEventsAdded.push(callback);
 };
 
 Calendar.prototype.loadFeed = function(options) {
@@ -35,9 +42,9 @@ Calendar.prototype.loadFeed = function(options) {
 
         thiz._entries.push.apply(thiz._entries, newEntries);
 
-        if (thiz._options.onEventsAdded) {
-            thiz._options.onEventsAdded(newEntries);
-        }
+        thiz._events.onEventsAdded.forEach(function(callback) {
+            callback(newEntries);
+        });
     });
 };
 
@@ -201,10 +208,10 @@ Calendar.prototype.displayWithRandomizedLayout = function(container, options) {
         //$(container).css("min-height", (maxY + 50) + "px");
     };
 
-    this.setOptions({onEventsAdded: function(events) {
+    this.onEventsAdded(function(events) {
         events.forEach(attachToEvent);
         updateLayout();
-    }});
+    });
 
     this._entries.forEach(function(entry) {
         attachToEvent(entry)

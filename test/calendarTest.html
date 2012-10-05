@@ -114,10 +114,8 @@
             testLoadFeedShouldRaiseSingleEvent: function() {
                 var addedEvents = null;
 
-                this._calendar.setOptions({
-                    onEventsAdded: function(events) {
-                        addedEvents = events;
-                    }
+                this._calendar.onEventsAdded(function(events) {
+                    addedEvents = events;
                 });
 
                 this._loadSampleCalendarData();
@@ -132,6 +130,21 @@
                 assertEquals(text, cutStringIfNecessary(text, 200));
                 assertEquals("Sample text", cutStringIfNecessary(text, 14));
                 assertEquals("Sample text [...]", cutStringIfNecessary(text, 14, " [...]"));
+            },
+
+            testMultipleEventListeners: function () {
+                var listener1Called = false, listener2Called = false;
+
+                var listener1 = function(events) { listener1Called = true; };
+                var listener2 = function(events) { listener2Called = true; };
+
+                this._calendar.onEventsAdded(listener1);
+                this._calendar.onEventsAdded(listener2);
+
+                this._loadSampleCalendarData();
+
+                assertTrue(listener1Called);
+                assertTrue(listener2Called);
             },
 
             _loadSampleCalendarData: function() {

@@ -255,3 +255,11 @@ img.button, .home-button {
 #start-aptitud-day { max-width: 20%; }
 #start-oredev { max-width: 20%; max-height: 25%; }
 #start-benice { max-width: 15%; }*/
+
+.start-calendar-feed .title {
+    font-weight: bold;
+}
+
+.start-calendar-feed .content {
+    margin-bottom: 2%;
+}
