@@ -20,7 +20,7 @@
 
 <div id="viewport">
 
-<div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" data-bookmark="kalender" style="background: #FF0096; text-align:center">
+<div id="calendarPage" class="aptitud-page" data-column="0" data-row="0" data-bookmark="kalender" style="background: #FEBE10; text-align:center">
     <img class="page-header" src="./images/kalender.png"></img>
 		<a href="http://usergroup.se" target="new">
 			 <img id="calendar-thx-image" src="./images/TackUserGroup.png" >
@@ -29,10 +29,11 @@
 </div>
 
 <div id="startPage" class="aptitud-page" data-column="0" data-row="1" data-bookmark="hem" style="background: #EE5555; text-align: center; vertical-align: middle;">
-
+<!--
     <img class="home-image" id="start-klotter" src="images/home/klotter.png" />
+-->
     
-		<img class="home-image" id="start-logo" src="images/home/aptitudlogo.png" />
+    <img class="home-image" id="start-logo" src="images/home/aptitudlogo.png" />
     
     <a href="#blogg">
         <div id="start-blog">
@@ -41,26 +42,27 @@
         </div>
     </a>
 
+    <!--
     <a href="#vi">
         <img class="home-image" id="start-we" src="images/home/vi.png" />
     </a>
-
+-->
     <a href="javascript:void(0)" onclick="launchTour();">
         <img class="home-image" id="start-30sek" src="images/home/30sek.png" />
     </a>
 
     <a href="#kalender">
-			 <div id="start-calendar">
-			 			<div id="start-calendar-preview">
-						</div>
-       			<img src="images/home/kalender.png" style="width: 100%;" />
-			 </div
+                        <div id="start-calendar">
+                                               <div id="start-calendar-preview">
+                                               </div>
+                       <img src="images/home/kalender.png" style="width: 100%;" />
+                        </div
     </a>
 
     <a href="#aptituddagen">
 			 <div id="start-aptitud-day">
-            <div id="start-aptitud-day-date-preview">5 Oktober</div>
-            <div id="start-aptitud-day-theme-preview">To be decided...</div>
+            <div id="start-aptitud-day-date-preview"></div>
+            <div id="start-aptitud-day-theme-preview"></div>
 						<img src="images/home/aptituddagen.png" style="width: 100%;" />
 						
 			</div>
@@ -68,6 +70,9 @@
 
     <a href="http://oredev.org/2012/partners" target="new">
         <img class="home-image" id="start-oredev" src="images/home/oredev.png" />
+    </a>
+    <a href="www.jfokus.se" target="new">
+        <img class="home-image" id="start-jfokus" src="images/home/jfokus.png" />
     </a>
 		
 		<a href="http://www.linkedin.com/company/2660293" target="new">
@@ -112,7 +117,7 @@
 </div>
 
 <div id="blogPage" class="aptitud-page" data-column="0" data-row="2" data-bookmark="blogg" style="background: #3399CC; text-align: center;">
-    <img src="images/blogg.png" class="page-header" />
+    <img src="images/2blogg.png" id="blog-header"  />
 
     <div id="blog-text" class="blog">
         <div id="posts"></div>
