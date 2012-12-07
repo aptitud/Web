@@ -41,7 +41,7 @@ div.aptitud-page {
 /* Blog page */
 div.blog{
     max-height: 94%;
-    margin: 10px;
+    margin: 3%;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -58,7 +58,7 @@ div.blog{
 }
 div.aptitud-day-text{
     max-height: 60%;
-    margin: 10px;
+    margin: 3%;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -70,7 +70,7 @@ div.aptitud-day-text{
 /*Filosophy*/
 div.philosophyText{
     max-height: 94%;
-    margin: 10px;
+    margin: 3%;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -229,13 +229,13 @@ div.philosophyText{
     #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
-/*
-@media screen and (min-width: 38em)  
+
+@media all and (min-width:321px )  
 {
     div.blog {font-size: 1em;}
     p.paragraph {font-size: 1em;}
 }
-*/
+
 .start-calendar-feed .title {
     font-weight: bold;
 }
