@@ -71,6 +71,12 @@ $(function () {
     AptitudContext._calendar = (function (ctx) {
         var calendar = new Calendar();
 
+        calendar._entries.push({
+            id: "credits",
+            title : "Tack usergroup.se!",
+            content: "(för att ni håller reda på geekiga events åt oss alla!)"
+        });
+
         calendar.onEventsAdded(function(events) {
             events.forEach(function(event) {
                 $("#start-calendar-preview").append(
@@ -90,7 +96,7 @@ $(function () {
         calendar.loadFeed({
             calendarId:"oarn29ir2vm2kjfaa5vof7qicg@group.calendar.google.com",
             orderBy:"starttime",
-            maxResults:5,
+            maxResults:4,
             futureEvents:true,
             singleEvents:true,
             sortOrder:"ascending"

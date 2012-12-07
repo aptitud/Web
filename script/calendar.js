@@ -148,13 +148,18 @@ Calendar.prototype.displayWithRandomizedLayout = function(container, options) {
     var thiz = this;
 
     var attachToEvent = function(event) {
+        var content = $("<div>").addClass("content")
+            .append($("<div>").addClass("title").text(event.title))
+            .append($("<div>").text(cutStringIfNecessary(event.content, 120, " [...]")));
+
+        if (event.when) {
+            content.append($("<div>").addClass("time").text(toConvenientDateFormat(event.when.from)));
+        }
+
         var eventView = $("<div>")
             .addClass("aptitud-calendar-event")
             .css("position", "absolute")
-            .append($("<div>").addClass("content")
-                .append($("<div>").addClass("title").text(event.title))
-                .append($("<div>").text(cutStringIfNecessary(event.content, 120, " [...]")))
-                .append($("<div>").addClass("time").text(toConvenientDateFormat(event.when.from))));
+            .append(content);
 
         if (options.onClick) {
             eventView.mousedown(function() {
