@@ -41,7 +41,7 @@ div.aptitud-page {
 /* Blog page */
 div.blog{
     max-height: 94%;
-    margin: 5px;
+    margin: 8px;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -58,7 +58,7 @@ div.blog{
 }
 div.aptitud-day-text{
     max-height: 60%;
-    margin: 5px;
+    margin: 8px;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -70,7 +70,7 @@ div.aptitud-day-text{
 /*Filosophy*/
 div.philosophyText{
     max-height: 94%;
-    margin: 5px;
+    margin: 8px;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -148,7 +148,8 @@ div.philosophyText{
 
 /*Start*/
 
-#startPage img.home-image, #start-blog, #start-aptitud-day, #start-calendar {
+#startPage img.home-image, #start-blog, #start-aptitud-day, #start-calendar 
+{
     position: absolute;
 }
 #start-blog-preview { 
@@ -190,9 +191,11 @@ div.philosophyText{
     text-align: left; 
     font-size: 8pt; 
     z-index:100; }
-			
-                
-@media all and (orientation:portrait) {
+
+@media all and (orientation:portrait) 
+{
+    div.blog {font-size: 2em;}
+    p.paragraph {font-size: 2em;   }
     #start-blog { left: 5%; top: 58%; width: 38%; }
     #start-logo { left: 30%; top: 38%; width: 40%; }
     #start-30sek { left: 45%; top: 32%; height: 8%; }
@@ -208,8 +211,9 @@ div.philosophyText{
  /*   #start-klotter { left: 28%; top: 1%; width: 25%; } */
 }
 
-
-@media all and (orientation:landscape) { 
+@media all and (orientation:landscape) {
+    div.blog {font-size: 2em;}
+    p.paragraph {font-size: 2em;   }
     #start-blog { left: 2%; top: 50%; width: 17%; }
     #start-30sek { left: 49%; top: 17%; height: 14%; }
     #start-logo { left: 30%; top: 25%; width: 40%; }
@@ -225,7 +229,13 @@ div.philosophyText{
     #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
-
+/*
+@media screen and (min-width: 38em)  
+{
+    div.blog {font-size: 1em;}
+    p.paragraph {font-size: 1em;}
+}
+*/
 .start-calendar-feed .title {
     font-weight: bold;
 }
