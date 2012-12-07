@@ -48,6 +48,7 @@ div.blog{
     font-size: 13pt;
     font-family: sans-serif;
     overflow: hidden;
+    overflow-y:  scroll
 }
 
 /*Aptituddagen */
@@ -193,6 +194,7 @@ div.philosophyText{
     z-index:100; }
 
 @media all and (orientation:portrait){
+    /*#start-benice { visibility: hidden;}*/
     div.blog {font-size: 2em;}
     p.paragraph {font-size: 2em;   }
     #start-blog { left: 5%; top: 58%; width: 38%; }
@@ -202,7 +204,6 @@ div.philosophyText{
     #start-aptitud-day { left: 1%; top: 5%; width: 50%; }
     #start-oredev { left: 66%; top: 74%; width: 30%; }
     #start-jfokus { left: 49%; top: 65%; width: 22%; }
-/*   #start-benice { left: 80%; top: 55%; width: 20%; } */
     #start-we { left: 54%; top: 29%; width: 13%; }
     #start-fb { left: 10%; top: 45%; width: 5%; }
     #start-twitter { left: 16%; top: 46%; width: 5%; }
@@ -211,6 +212,7 @@ div.philosophyText{
 }
 
 @media all and (orientation:landscape) {
+   /* #start-benice { visibility: hidden;}*/
     div.blog {font-size: 2em;}
     p.paragraph {font-size: 2em;   }
     #start-blog { left: 2%; top: 50%; width: 17%; }
@@ -220,7 +222,6 @@ div.philosophyText{
     #start-aptitud-day { left: 5%; top: 8%; width: 25%;}
     #start-oredev { left: 66%; top: 72%; width: 18%; }
     #start-jfokus { left: 22%; top: 60%; width: 15%; }
-/*    #start-benice { left: 88%; top: 68%; width: 12%;z-index:101; } */
     #start-we { left: 60%; top: 14%; width: 8%; }
     #start-fb { left: 45%; top: 85%; width: 3%; }
     #start-twitter { left: 50%; top: 86%; width: 3%; }
@@ -228,8 +229,23 @@ div.philosophyText{
     #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
+@media all and (orientation:landscape) and (min-width:1024px){
+    div.blog {font-size: 1em;}
+    p.paragraph {font-size: 1em;   }
+    div.philosophyText{  margin-left: 15%;margin-right:15%;}
+    div.blog{  margin-left: 15%;margin-right:15%;}
+    div.aptitud-day-text{  margin-left: 15%;margin-right:15%;}
+    /*#start-benice { visibility: visible; width: 20%; }*/
+}
 
-
+@media all and (orientation:portrait) and (min-width:600px){
+    div.blog {font-size: 1em;}
+    p.paragraph {font-size: 1em;   }
+    div.philosophyText{ margin-left: 10%; margin-right: 10%;}
+    div.blog{ margin-left: 10%; margin-right: 10%;}
+    div.aptitud-day-text{ margin-left: 10%;margin-right:10%;}
+  /*  #start-benice { visibility: visible; width: 30%; }*/
+}
 .start-calendar-feed .title {
     font-weight: bold;
 }
