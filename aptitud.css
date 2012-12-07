@@ -43,7 +43,7 @@ div.blog {
     overflow: scroll;
     height:450px;
     overflow-x: hidden;
-}
+   }
 
 div {
 
@@ -123,7 +123,7 @@ div.blog {
 
 .page-header {
     max-height: 12%;
-    max-width: 80%;
+    max-width: 90%;
     margin-top: 7%;
     margin-bottom: 2%;
 		
@@ -146,11 +146,13 @@ img.button, .home-button {
 
 .aptitud-day-banner {
     margin-top: 8%;
-    width: 40%;
+    max-height: 200px;
+    max-width: 88%;
 }
 
 #aptitud-day-text, #philosophy-text, #blog-text {
-    width: 50%;
+    width: 88%;
+    max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -214,7 +216,22 @@ img.button, .home-button {
 		z-index: 1; 
 		}			
 		
-
+@media all and (orientation:portrait) {
+    #start-blog { left: 5%; top: 58%; width: 38%; }
+    #start-logo { left: 30%; top: 38%; width: 40%; }
+    #start-30sek { left: 45%; top: 32%; height: 8%; }
+    #start-calendar { left: 68%; top: 5%; width: 35%; }
+    #start-aptitud-day { left: 1%; top: 5%; width: 50%; }
+    #start-oredev { left: 66%; top: 74%; width: 30%; }
+    #start-jfokus { left: 49%; top: 65%; width: 22%; }
+/*   #start-benice { left: 80%; top: 55%; width: 20%; } */
+    #start-we { left: 54%; top: 29%; width: 13%; }
+    #start-fb { left: 10%; top: 45%; width: 5%; }
+    #start-twitter { left: 16%; top: 46%; width: 5%; }
+    #start-linkedin { left: 22%; top: 44%; width: 5%; }
+ /*   #start-klotter { left: 28%; top: 1%; width: 25%; } */
+   #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
+}
 @media all and (orientation:landscape) { 
     #start-blog { left: 2%; top: 50%; width: 17%; }
     #start-30sek { left: 49%; top: 17%; height: 14%; }
@@ -232,22 +249,7 @@ img.button, .home-button {
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
 
-@media all and (orientation:portrait) {
-    #start-blog { left: 5%; top: 58%; width: 38%; }
-    #start-logo { left: 30%; top: 38%; width: 40%; }
-    #start-30sek { left: 45%; top: 32%; height: 8%; }
-    #start-calendar { left: 68%; top: 5%; width: 35%; }
-    #start-aptitud-day { left: 1%; top: 5%; width: 50%; }
-    #start-oredev { left: 66%; top: 74%; width: 30%; }
-    #start-jfokus { left: 49%; top: 65%; width: 22%; }
-/*   #start-benice { left: 80%; top: 55%; width: 20%; } */
-    #start-we { left: 54%; top: 29%; width: 13%; }
-    #start-fb { left: 10%; top: 45%; width: 5%; }
-    #start-twitter { left: 16%; top: 46%; width: 5%; }
-    #start-linkedin { left: 22%; top: 44%; width: 5%; }
- /*   #start-klotter { left: 28%; top: 1%; width: 25%; } */
-   #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
-}
+
 
 /*#start-blog { max-width: 15%; max-height: 60%;}
 #start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
