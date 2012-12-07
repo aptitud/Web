@@ -48,6 +48,7 @@ div.blog{
     font-size: 13pt;
     font-family: sans-serif;
     overflow: hidden;
+    overflow-y:  scroll
 }
 
 /*Aptituddagen */
@@ -193,7 +194,7 @@ div.philosophyText{
     z-index:100; }
 
 @media all and (orientation:portrait){
-    #start-benice { visibility: hidden;}
+    /*#start-benice { visibility: hidden;}*/
     div.blog {font-size: 2em;}
     p.paragraph {font-size: 2em;   }
     #start-blog { left: 5%; top: 58%; width: 38%; }
@@ -211,7 +212,7 @@ div.philosophyText{
 }
 
 @media all and (orientation:landscape) {
-    #start-benice { visibility: hidden;}
+   /* #start-benice { visibility: hidden;}*/
     div.blog {font-size: 2em;}
     p.paragraph {font-size: 2em;   }
     #start-blog { left: 2%; top: 50%; width: 17%; }
@@ -234,7 +235,7 @@ div.philosophyText{
     div.philosophyText{  margin-left: 15%;margin-right:15%;}
     div.blog{  margin-left: 15%;margin-right:15%;}
     div.aptitud-day-text{  margin-left: 15%;margin-right:15%;}
-    #start-benice { visibility: visible; width: 20%; }
+    /*#start-benice { visibility: visible; width: 20%; }*/
 }
 
 @media all and (orientation:portrait) and (min-width:600px){
@@ -243,7 +244,7 @@ div.philosophyText{
     div.philosophyText{ margin-left: 10%; margin-right: 10%;}
     div.blog{ margin-left: 10%; margin-right: 10%;}
     div.aptitud-day-text{ margin-left: 10%;margin-right:10%;}
-    #start-benice { visibility: visible; width: 30%; }
+  /*  #start-benice { visibility: visible; width: 30%; }*/
 }
 .start-calendar-feed .title {
     font-weight: bold;
