@@ -228,8 +228,15 @@ div.philosophyText{
     #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
+@media all and (orientation:landscape) and (min-width:1024px){
+    div.blog {font-size: 1em;}
+    p.paragraph {font-size: 1em;   }
+}
 
-
+@media all and (orientation:portrait) and (min-width:600px){
+    div.blog {font-size: 1em;}
+    p.paragraph {font-size: 1em;   }
+}
 .start-calendar-feed .title {
     font-weight: bold;
 }
