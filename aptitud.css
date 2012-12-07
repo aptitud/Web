@@ -41,7 +41,7 @@ div.aptitud-page {
 /* Blog page */
 div.blog{
     max-height: 94%;
-    margin: 8px;
+    margin: 10px;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -58,7 +58,7 @@ div.blog{
 }
 div.aptitud-day-text{
     max-height: 60%;
-    margin: 8px;
+    margin: 10px;
     color: white;
     text-align: left;
     font-weight: lighter;
@@ -70,7 +70,7 @@ div.aptitud-day-text{
 /*Filosophy*/
 div.philosophyText{
     max-height: 94%;
-    margin: 8px;
+    margin: 10px;
     color: white;
     text-align: left;
     font-weight: lighter;
