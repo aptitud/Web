@@ -11,58 +11,82 @@
     visibility: hidden;
 }
 
+/* General settings */
 a {
     color: black;
     text-decoration: none;
 }
-
 img {
     border:none;
 }
-
-div.unselected-page {
-    /* opacity: 0.5; */
-}
-
-div.aptitud-page {
-	position: relative;	
-	/* -moz-box-shadow:  0 0 2px 2px #888;
-	-webkit-box-shadow:  0 0 2px 2px#888;
-	box-shadow:  0 0 2px 2px #888;*/
-    overflow: hidden;
-}
-
-div.blogcontent {
-    width: 55%;
-    margin-bottom: 10px;
-    margin-left:auto;
-    margin-right:auto;
-}
-
-div.blog {
-    overflow: scroll;
-    height:450px;
-    overflow-x: hidden;
-}
-
-div {
-
-}
-
-p.paragraph, div.blog {
+p.paragraph {
     color: white;
     text-align: left;
     font-weight: lighter;
     font-size: 13pt;
     font-family: sans-serif;
 }
+img.button, .home-button {
+    position: absolute;
+    cursor: pointer;
+    cursor: hand;
+}
 
-div.blog {
-    padding-right: 20px;
+div.aptitud-page {
+    position: relative;	
+    overflow: hidden;
+ 
+}
+
+/* Blog page */
+div.blog{
+    max-height: 94%;
+    margin: 3%;
+    color: white;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 13pt;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+/*Aptituddagen */
+.aptitud-day-banner {
+    margin-top: 8%;
+    max-height: 200px;
+    max-width: 88%;
+}
+div.aptitud-day-text{
+    max-height: 60%;
+    margin: 3%;
+    color: white;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 13pt;
+    font-family: sans-serif;
+    overflow: hidden;
+}
+
+/*Filosophy*/
+div.philosophyText{
+    max-height: 94%;
+    margin: 3%;
+    color: white;
+    text-align: left;
+    font-weight: lighter;
+    font-size: 13pt;
+    font-family: sans-serif;
+    overflow: hidden;
 }
 
 /* CALENDAR PAGE */
-
+#calendar-thx-image {
+    position: absolute;								
+    left: 1%; 
+    top: 1%; 
+    width:20%;
+    z-index: 1; 
+    }
 .aptitud-calendar-event {
     background: #FFFFFF;
     max-width: 30%;
@@ -72,20 +96,16 @@ div.blog {
     padding: 10px;
     box-shadow: 0px 0px 10px #505050;
 }
-
 .aptitud-calendar-event .title {
     font-size: 11pt;
     font-weight: bold;
 }
-
 .aptitud-calendar-event .content {
     overflow: auto;
 }
-
 .aptitud-calendar-event .time {
     font-weight: bold;
 }
-
 #calendar-container {
     width: 90%;
     height: 80%;
@@ -94,7 +114,19 @@ div.blog {
     position: relative;
     margin-top: 4%;
 }
-
+#calendar-thx-image {
+    position: absolute;								
+    left: 1%; 
+    top: 1%; 
+    width:20%;
+    z-index: 1; 
+    }
+.aptitud-calendar-event {
+    cursor: pointer;
+    cursor: hand;
+}
+    
+/*Vi Page*/ 
 #fellow-board {
     position: relative;
     width: 90%;
@@ -102,120 +134,85 @@ div.blog {
     margin-left: auto;
     margin-right: auto;
 }
-
 #fellow-board div.portrait {
     position: absolute;
 }
-
 #fellow-board {
     text-align: center;
 }
-
 #fellow-board .portrait-container {
     position: relative;
     margin-left: auto;
     margin-right: auto;
 }
 
-#fellow-board .portrait img.portrait {
-    width: 100%;
-}
+/*Start*/
 
-.page-header {
-    max-height: 12%;
-    max-width: 80%;
-    margin-top: 7%;
-    margin-bottom: 2%;
-		
-}
-
-img.button, .home-button {
-    position: absolute;
-    cursor: pointer;
-    cursor: hand;
-}
-
-.aptitud-calendar-event {
-    cursor: pointer;
-    cursor: hand;
-}
-
-#calendarPage .page-header {
-    margin-top: 7%;
-}
-
-.aptitud-day-banner {
-    margin-top: 8%;
-    width: 40%;
-}
-
-#aptitud-day-text, #philosophy-text, #blog-text {
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#blog-text {
-    max-height: 60%;
-}
-
-#startPage img.home-image, #start-blog, #start-aptitud-day, #start-calendar {
+#startPage img.home-image, #start-blog, #start-aptitud-day, #start-calendar 
+{
     position: absolute;
 }
-
 #start-blog-preview { 
-		position: absolute; 
-		overflow: hidden; 
-		left: 8%; 
-		top: 42%; 
-		width: 82%; 
-		height: 42%; 
-		text-align: left; 
-		font-size: 8pt; }
-
+    position: absolute; 
+    overflow: hidden; 
+    left: 8%; 
+    top: 42%; 
+    width: 82%; 
+    height: 42%; 
+    text-align: left; 
+    font-size: 8pt; }
 #start-calendar-preview { 
-		position: absolute; 
-		overflow: hidden; 
-		left: 20%; 
-		top: 25%; 
-		width: 65%; 
-		height: 65%; 
-		text-align: left; 
-		font-size: 10pt; 
-		z-index:100; }		
-		
+    position: absolute; 
+    overflow: hidden; 
+    left: 20%; 
+    top: 25%; 
+    width: 65%; 
+    height: 65%; 
+    text-align: left; 
+    font-size: 10pt; 
+    z-index:100; }		
 #start-aptitud-day-date-preview { 
-		position: absolute; 
-		overflow: hidden; 
-		left: 33%; 
-		top: 73%; 
-		width: 30%; 
-		height: 8%; 
-		text-align: left; 
-		font-size: 8pt; 
-		z-index:100; }
-
+    position: absolute; 
+    overflow: hidden; 
+    left: 33%; 
+    top: 73%; 
+    width: 30%; 
+    height: 8%; 
+    text-align: left; 
+    font-size: 8pt; 
+    z-index:100; }
 #start-aptitud-day-theme-preview { 
-		position: absolute; 
-		overflow: hidden; 
-		left: 21.5%; 
-		top: 82%; 
-		width: 30%; 
-		height: 8%; 
-		text-align: left; 
-		font-size: 8pt; 
-		z-index:100; }
+    position: absolute; 
+    overflow: hidden; 
+    left: 21.5%; 
+    top: 82%; 
+    width: 30%; 
+    height: 8%; 
+    text-align: left; 
+    font-size: 8pt; 
+    z-index:100; }
 
-#calendar-thx-image {
-		position: absolute;								
-		left: 1%; 
-		top: 1%; 
-		width:20%;
-		z-index: 1; 
-		}			
-		
+@media all and (orientation:portrait){
+    div.blog {font-size: 2em;}
+    p.paragraph {font-size: 2em;   }
+    #start-blog { left: 5%; top: 58%; width: 38%; }
+    #start-logo { left: 30%; top: 38%; width: 40%; }
+    #start-30sek { left: 45%; top: 32%; height: 8%; }
+    #start-calendar { left: 68%; top: 5%; width: 35%; }
+    #start-aptitud-day { left: 1%; top: 5%; width: 50%; }
+    #start-oredev { left: 66%; top: 74%; width: 30%; }
+    #start-jfokus { left: 49%; top: 65%; width: 22%; }
+/*   #start-benice { left: 80%; top: 55%; width: 20%; } */
+    #start-we { left: 54%; top: 29%; width: 13%; }
+    #start-fb { left: 10%; top: 45%; width: 5%; }
+    #start-twitter { left: 16%; top: 46%; width: 5%; }
+    #start-linkedin { left: 22%; top: 44%; width: 5%; }
+ /*   #start-klotter { left: 28%; top: 1%; width: 25%; } */
+}
 
-@media all and (orientation:landscape) { 
+@media all and (orientation:landscape) {
+    div.blog {font-size: 2em;}
+    p.paragraph {font-size: 2em;   }
     #start-blog { left: 2%; top: 50%; width: 17%; }
     #start-30sek { left: 49%; top: 17%; height: 14%; }
     #start-logo { left: 30%; top: 25%; width: 40%; }
@@ -232,34 +229,6 @@ img.button, .home-button {
 /*    #start-klotter { left: 25%; top: 1%; width: 15%; } */
 }
 
-@media all and (orientation:portrait) {
-    #start-blog { left: 5%; top: 58%; width: 38%; }
-    #start-logo { left: 30%; top: 38%; width: 40%; }
-    #start-30sek { left: 45%; top: 32%; height: 8%; }
-    #start-calendar { left: 68%; top: 5%; width: 35%; }
-    #start-aptitud-day { left: 1%; top: 5%; width: 50%; }
-    #start-oredev { left: 66%; top: 74%; width: 30%; }
-    #start-jfokus { left: 49%; top: 65%; width: 22%; }
-/*   #start-benice { left: 80%; top: 55%; width: 20%; } */
-    #start-we { left: 54%; top: 29%; width: 13%; }
-    #start-fb { left: 10%; top: 45%; width: 5%; }
-    #start-twitter { left: 16%; top: 46%; width: 5%; }
-    #start-linkedin { left: 22%; top: 44%; width: 5%; }
- /*   #start-klotter { left: 28%; top: 1%; width: 25%; } */
-   #blog-header {width:30%;margin-top: 7%; margin-bottom: 2%;}
-}
-
-/*#start-blog { max-width: 15%; max-height: 60%;}
-#start-blog-preview { position: absolute; overflow: hidden; left: 8%; top: 42%; width: 82%; height: 42%; text-align: left; font-size: 8pt; }
-.home-image, #start-blog { position: absolute; }
-#start-logo { position: absolute; max-width: 43%; max-height: 43%; }
-#home-fb, #home-twitter, #home-linkedin { width: 2.5%;  }
-#start-we { max-width: 10%; }
-#start-30sek { max-width: 10%; }
-#start-calendar { max-width: 15%; }
-#start-aptitud-day { max-width: 20%; }
-#start-oredev { max-width: 20%; max-height: 25%; }
-#start-benice { max-width: 15%; }*/
 
 .start-calendar-feed .title {
     font-weight: bold;
