@@ -169,7 +169,7 @@ Calendar.prototype.displayWithRandomizedLayout = function(container, options) {
 
         eventViews[event.id] = eventView.get(0);
 
-        rotate(eventView.get(0), nextRandom(-3, 3));
+        /*rotate(eventView.get(0), nextRandom(-3, 3));*/
 
         $(container).append(eventView);
 
