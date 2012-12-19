@@ -74,7 +74,8 @@ $(function () {
         calendar._entries.push({
             id: "credits",
             title : "Tack usergroup.se!",
-            content: "(för att ni håller reda på geekiga events åt oss alla!)"
+            content: "(för att ni håller reda på geekiga events åt oss alla!)",
+            link : "http://usergroup.se"
         });
 
         calendar.onEventsAdded(function(events) {
@@ -99,7 +100,8 @@ $(function () {
             maxResults:4,
             futureEvents:true,
             singleEvents:true,
-            sortOrder:"ascending"
+            sortOrder:"ascending",
+            callback:true
         });
     })(AptitudContext);
 
@@ -158,7 +160,6 @@ function launchTour() {
 function createSticker(element) {
     var tejp = document.createElement("img");
 
-    tejp.src = "images/tejp.png";
 
     tejp.onload = function () {
         with (tejp.style) {
@@ -169,6 +170,7 @@ function createSticker(element) {
 
         element.appendChild(tejp);
     };
+    tejp.src = "images/tejp.png";
 }
 
 function rotate(element, rotation) {

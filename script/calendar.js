@@ -20,6 +20,15 @@ Calendar.prototype.onEventsAdded = function(callback) {
     this._events.onEventsAdded.push(callback);
 };
 
+Calendar.prototype.parseDate = function(dateStr) {
+    var d = new Date(dateStr);
+    if (!isNaN(d)) {
+        return d;
+    }
+    // parse it like yyyy-mm-ddTHH:MM:SS
+    return new Date(dateStr.substring(0, 4), dateStr.substring(5, 7), dateStr.substring(8, 10), dateStr.substring(11, 13), dateStr.substring(14, 16));
+}
+
 Calendar.prototype.loadFeed = function(options) {
     var thiz = this;
 
@@ -28,12 +37,13 @@ Calendar.prototype.loadFeed = function(options) {
 
         for (var i = 0; i < result.feed.entry.length; i++) {
             var entry = result.feed.entry[i];
-
+            var from = thiz.parseDate(entry.gd$when[0].startTime);
+            var to = thiz.parseDate(entry.gd$when[0].endTime);
             newEntries.push({
                 id: entry.id.$t,
                 title : entry.title.$t,
                 content: entry.content.$t,
-                when: { from: new Date(entry.gd$when[0].startTime), to: new Date(entry.gd$when[0].endTime) },
+                when: { from: from, to: to },
                 link: entry.link[0].href,
                 _definition: result
 
@@ -49,7 +59,7 @@ Calendar.prototype.loadFeed = function(options) {
 };
 
 Calendar.prototype._loadURL = function(url, callback) {
-    $.get(url, callback);
+    $.getJSON(url, callback);
 };
 
 Calendar._calendarFeedURL = function(options) {
@@ -79,12 +89,19 @@ Calendar._calendarFeedURL = function(options) {
         url += "&futureevents=true"
     }
 
+    if ("callback" in options && options.callback) {
+        url += "&callback=?"
+    }
+
     // return "http://www.google.com/calendar/feeds/oarn29ir2vm2kjfaa5vof7qicg@group.calendar.google.com/public/full?alt=json&orderby=starttime&max-results=5&singleevents=true&sortorder=ascending&futureevents=true";
 
     return url;
 };
 
 function toConvenientDateFormat(date) {
+    if (isNaN(date)) {
+        return "";
+    }
     var months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
     var pad = function(str, len, prefix) {
         while (str.length < len) {
@@ -108,11 +125,16 @@ function toConvenientDateFormat(date) {
             default:
                 return ":e";
         }
-    })() + " " + months[date.getMonth()] + " " + pad(date.getHours().toString(), 2, "0") + ":" + pad(date.getMinutes().toString(), 2, "0");
-
+    })() + " " + months[date.getMonth()] + (function() { 
+                                                if (date.getHours() > 0) {
+                                                        return " " + pad(date.getHours().toString(), 2, "0") + ":" + pad(date.getMinutes().toString(), 2, "0");
+                                                } else return "";})();
 }
 
 function cutStringIfNecessary(str, maxLength, suffix) {
+    if (!str) {
+        return "";
+    }
     if (str.length < maxLength) {
         return str;
     }
@@ -150,14 +172,14 @@ Calendar.prototype.displayWithRandomizedLayout = function(container, options) {
     var attachToEvent = function(event) {
         var content = $("<div>").addClass("content")
             .append($("<div>").addClass("title").text(event.title))
-            .append($("<div>").text(cutStringIfNecessary(event.content, 120, " [...]")));
+            .append($("<div>").text(cutStringIfNecessary(event.content, 200, " [...]")));
 
         if (event.when) {
             content.append($("<div>").addClass("time").text(toConvenientDateFormat(event.when.from)));
         }
 
         var eventView = $("<div>")
-            .addClass("aptitud-calendar-event")
+            .addClass("aptitud-calendar-event ie-aptitud-calendar-event")
             .css("position", "absolute")
             .append(content);
 
