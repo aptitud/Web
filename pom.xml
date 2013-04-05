@@ -35,10 +35,12 @@
                 </executions>
                 <configuration>
                     <packageJavaScriptPath>${project.build.directory}/jasmine/src</packageJavaScriptPath>
+
                     <jsSrcDir>src/main/web/javascript</jsSrcDir>
 
                     <preloadSources>
                         <preloadSource>src/main/web/javascript/lib/jquery-1.8.1.min.js</preloadSource>
+                        <preloadSource>src/main/web/javascript/lib/require-2.1.5-min.js</preloadSource>
                     </preloadSources>
                 </configuration>
             </plugin>

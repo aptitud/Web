@@ -6,105 +6,165 @@
     <title>Aptitud</title>
 
     <script type="text/javascript" src="javascript/lib/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="javascript/lib/require-2.1.5-min.js"></script>
     <script type="text/javascript" src="index.js"></script>
 
-    <link type="text/css" href="index.css" rel="stylesheet" />
+    <link type="text/css" href="index.css" rel="stylesheet"/>
 </head>
 
 
-<body  style="border: 0px;margin:0;" onresize="updateLayout();"  onload="updateLayout();">
-    <a href="#startPage" class="scroll"><img id="navStart" border="0" src="images/navStart2.png" style="position: fixed ;right:1.5%;top:30%;width:30px;"></a>
-    <a href="#philosophyPage" class="scroll"><img id="navFilo"  border="0" src="images/navFilo2.png" style="position: fixed ;right:1.5%;top:38%;width:30px;"></a>
-    <a href="#aptitudDayPage" class="scroll"><img id="navAptitudDag"  border="0" src="images/navAptitudDag2.png" style="position: fixed ;right:1.5%;top:46%;width:30px;"></a>
-    <a href="#fellowPage" class="scroll"><img id="navVi"  border="0" src="images/navVi2.png" style="position: fixed ;right:1.5%;top:54%;width:30px;"></a>
-    <a href="#bloggPage" class="scroll"><img id="navBlogg"  border="0" src="images/navBlogg2.png" style="position: fixed ;right:1.5%;top:62%;width:30px;"></a>
+<body style="border: 0px;margin:0;" onresize="updateLayout();" onload="updateLayout();">
+
+<a href="#startPage" class="scroll" data-alias="hem">
+    <img id="navStart" border="0" src="images/navStart2.png" style="position: fixed ;right:1.5%;top:30%;width:30px;">
+</a>
+
+<a href="#philosophyPage" class="scroll" data-alias="filosofi">
+    <img id="navFilo" border="0" src="images/navFilo2.png" style="position: fixed ;right:1.5%;top:38%;width:30px;">
+</a>
+
+<a href="#aptitudDayPage" class="scroll" data-alias="aptituddag">
+    <img id="navAptitudDag" border="0" src="images/navAptitudDag2.png" style="position: fixed ;right:1.5%;top:46%;width:30px;">
+</a>
+
+<a href="#fellowPage" class="scroll" data-alias="medarbetare">
+    <img id="navVi" border="0" src="images/navVi2.png" style="position: fixed ;right:1.5%;top:54%;width:30px;">
+</a>
+
+<a href="#bloggPage" class="scroll" data-alias="blogg">
+    <img id="navBlogg" border="0" src="images/navBlogg2.png" style="position: fixed ;right:1.5%;top:62%;width:30px;">
+</a>
+
+<table border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td id="startPage" style="background: #EE5555; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
+            <img id="senaste" src="images/senaste.png" style="position: absolute;left:1%;top:1%;">
+            <img id="stnyg7" src="images/stnyg7.png" style="position: absolute;right:23%;">
+            <img class="home-image" id="start-logo" src="images/aptitudlogo.png" style="width:40%"/>
+            <br>
+            <a href="http://www.linkedin.com/company/2660293" target="new"><img border="0" id="start-linkedin"
+                                                                                src="images/linkedin.png"
+                                                                                style="max-width:35px;width:5%;min-width:15px;"/></a>
+            <a href="http://twitter.com/Aptitud_Sthlm" target="new"><img border="0" id="start-twitter"
+                                                                         src="images/twitter.png"
+                                                                         style="max-width:35px;width:5%;min-width:15px;"/></a>
+            <a href="http://www.facebook.com/aptitudsthlm" target="new"><img border="0" id="start-fb"
+                                                                             src="images/fb.png"
+                                                                             style="max-width:35px;width:5%;min-width:15px;"/></a>
+
+        </td>
+    </tr>
+    <tr>
+        <td id="philosophyPage"
+            style="background: #1e859a;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
+
+            <img id="klotter" src="images/klotter.png" style="width:70%;">
+
+            <p>
+                Vi bygger Stockholms bästa arbetsplats. Där fokus är att ha roligt i sitt arbete. En plats dit människor
+                söker sig naturligt, dit alla är välkomna. Välkomna att utbyta ideer, att inspireras och att inspirera.
+            </p>
+
+            <p>
+                En plats för stolta och passionerade hantverkare. Ivriga att lära och dela med sig av sin kunskap.
+                Präglade av ödmjukhet och strävan mot ständig förbättring.
+            </p>
+
+            <p>
+                En plats för konsulter, deras vänner och kunder. Utvecklare, coacher, evangelister, ledare, ja alla som
+                driver på utvecklingen inom området. En plats för oss som är seriösa utan att ta oss själva på för stort
+                allvar. För oss som tycker om att ha roligt.
+            </p>
+
+            <p>
+                Vi drivs av Glädje, Transparens och Jävlar anamma.
+            </p>
 
 
+        </td>
+    </tr>
+    <tr>
+        <td id="aptitudDayPage"
+            style="background: #7A9752; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
+            <img src="images/aptituddagen.png" style="width:100%;"/>
 
+            <p>
+                Vi träffas en arbetsdag i månaden för att utveckla och utvecklas tillsammans. Bara för att det är kul
+                och för
+                att bli inspirerade. Och för att umgås. Vi gillar nämligen människor. Därför är dörren öppen och
+                alla är välkomna. Vi börjar dagen med att sätta agendan och kolla av vilka projekt som är igång
+                och vad det finns för roliga ideer som behöver realiseras. Anything goes!
+            </p>
 
-    <table border="0"  cellspacing="0" cellpadding="0" >
-        <tr>
-            <td id="startPage" style="background: #EE5555; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-                <img  id="senaste" src="images/senaste.png" style="position: absolute;left:1%;top:1%;">
-                <img  id="stnyg7" src="images/stnyg7.png" style="position: absolute;right:23%;">
-                <img class="home-image" id="start-logo" src="images/aptitudlogo.png" style="width:40%"/>
-                <br>
-                 <a href="http://www.linkedin.com/company/2660293" target="new"><img border="0" id="start-linkedin" src="images/linkedin.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
-                <a href="http://twitter.com/Aptitud_Sthlm" target="new"><img border="0" id="start-twitter" src="images/twitter.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
-                <a href="http://www.facebook.com/aptitudsthlm" target="new"><img border="0" id="start-fb" src="images/fb.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
+            <p>
+                Dagen avslutas med middag hos oss och en öppen afterwork för vänner i och utanför branschen.
+            </p>
 
-            </td></tr>
-        <tr>
-            <td id="philosophyPage" style="background: #1e859a;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-                <img id="klotter" src="images/klotter.png" style="width:70%;">
-                <p>
-                    Vi bygger Stockholms bästa arbetsplats. Där fokus är att ha roligt i sitt arbete. En plats dit människor söker sig naturligt, dit alla är välkomna. Välkomna att utbyta ideer, att inspireras och att inspirera.
-                </p>
-                <p>
-                En plats för stolta och passionerade hantverkare. Ivriga att lära och dela med sig av sin kunskap. Präglade av ödmjukhet och strävan mot ständig förbättring.
-               </p>
-               <p>
-                   En plats för konsulter, deras vänner och kunder. Utvecklare, coacher, evangelister, ledare, ja alla som driver på utvecklingen inom området. En plats för oss som är seriösa utan att ta oss själva på för stort allvar. För oss som tycker om att ha roligt.
-               </p>
-               <p>
-                   Vi drivs av Glädje, Transparens och Jävlar anamma.
-               </p>
+        </td>
+    </tr>
+    <tr>
+        <td id="fellowPage"
+            style="padding-top: 7px;background: #FF6633;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
+            <img src="images/medarbetare/andlow.png">
+            <img src="images/medarbetare/andnil.png">
+            <img src="images/medarbetare/davblo.png">
+            <img src="images/medarbetare/fresta.png">
+            <img src="images/medarbetare/gusdah.png">
+            <img src="images/medarbetare/hughag.png">
+            <img src="images/medarbetare/marham.png">
+            <img src="images/medarbetare/marnyl.png">
+            <img src="images/medarbetare/jonahn.png">
+            <img src="images/medarbetare/tomnas.png">
+            <img src="images/medarbetare/medarb4.png">
+        </td>
+    </tr>
+    <tr>
+        <td id="bloggPage"
+            style="background: #3399CC; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
 
+            <p class="bloggText">
+                <b>2013-03-14</b><br>
+                <b>Om du får göra precis vad du vill</b><br><br>
+                Blir det bra då? Kommer du att göra avtryck? Startar revolutionen? Kommer du att lyckas att hitta precis
+                det du vill i ett hav av valmöjligheter?
+                Jag har kollegor som pratar sig varma om behovet av constraints = restriktioner inom IT-världen. Vad
+                innebär detta då? Jo, det kokar ner till en enkel sak (i min värld ialf). Om du har oändliga monetära
+                resurser, bara har en suddig bild av var du vill och tiden är på din sida så kommer det du tyvärr med
+                all säkerhet inte gå i mål med något revolutionerande. Eller helt enkelt uttryckt våga applicera
+                restriktioner.
+                <br><br>
+                Aptitud platsar in i ovan diskussion på följande sätt;
+                <br> ”….oändligt med monetära resurser…” Aptitud är ett bolag som föddes utan en krona på sparkontot. Vi
+                har sagt det förut. Cashflow är bara en av flera konstanta pekpinnar som håller oss alerta.
+                <br> ”…suddig bild av var vi ska…” Ja här stämmer det till viss del om man skulle fråga belackarna. Dock
+                så har vi från start satt upp ett mål. Vi ska bli Stockholms bästa arbetsplats för konsulter. Jag tror
+                nog att det kan te sig rätt suddigt för några men för oss så är det ett knivskarpt mål. Om vi ska lyckas
+                så måste målet ligga på att vi tar hand om varandra, hjälper varandra och skapar attraktion i att vilja
+                spendera mycket tid tillsammans.
+                <br> ”…tiden på vår sida..” Tiden har vi på vår sida. I alla fall när det gäller att inte behöva stressa
+                igenom beslut, hasta fram saker och slarva. Som klischè Kjell skulle ha sagt – Låta det mogna. Men ser
+                på man på vår bransch så är tiden emot oss när det kommer till att slappna av för mycket och bara låta
+                motorn rulla på tomgång. Vi måste hela tiden vara på tå kring hur vi arbetar med kollegor, kunder och
+                vänner.
+                <br><br>Men vaddå, vi skiljer oss ju inte så mycket från andra egentligen. Hur ska vi då lyckas med
+                vårat mål, Stockholms bästa arbetsplats för konsulter. Jo det är här som restriktioner kommer in.
+                Vi ser en marknad som är till 95% satt sedan flertalet år tillbaka. Våra kunder har ett upparbetat sätt
+                att använda sig utav konsulthjälp i form utav upphandlingssätt, urval och sätt att skriva förfrågningar
+                på. Jag hävdar att en stark restriktion i vår värld är att på kort sikt acceptera att det är så
+                marknaden ser ut och agerar och lägga energin på att tolka behoven och möta dessa på det bästa sätt vi
+                kan. Inte konstant döpa om våra roller, arbetsverktyg och sätt att göra uppdrag.
+                Vi har en nödvändighet att hålla oss till ett språk som vänner och potentiella medarbetare förstår.
+                Skriver vi om vokabuläret utifrån vår tro enbart så kommer vi ha problem med att göra oss förstådda.
+                Svårighetsprincipen är den största fienden!
+                <br><br>Så, 5% av marknaden är vår canvas att fylla med färg. Det kan te sig som lite men det är det som
+                vi börjar med i alla fall. Ännu en restriktion.
+                Detta är nu, titta in i vår butik och ta en kopp kaffe med oss så kommer du se att vi har bytt ut vissa
+                restriktioner mot nya.
+                <br><br>In times of change, what is static will be left behind…
+            </p>
 
-            </td></tr>
-        <tr>
-            <td  id="aptitudDayPage" style="background: #7A9752; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-               <img src="images/aptituddagen.png" style="width:100%;"/>
-                <p>
-                    Vi träffas en arbetsdag i månaden för att utveckla och utvecklas tillsammans. Bara för att det är kul och för
-                    att bli inspirerade. Och för att umgås. Vi gillar nämligen människor. Därför är dörren öppen och
-                    alla är välkomna. Vi börjar dagen med att sätta agendan och kolla av vilka projekt som är igång
-                    och vad det finns för roliga ideer som behöver realiseras. Anything goes!
-                </p>
-
-                <p>
-                    Dagen avslutas med middag hos oss och en öppen afterwork för vänner i och utanför branschen.
-                </p>
-
-            </td></tr>
-        <tr>
-            <td id="fellowPage" style="padding-top: 7px;background: #FF6633;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-                <img src="images/medarbetare/andlow.png">
-                <img src="images/medarbetare/andnil.png">
-                <img src="images/medarbetare/davblo.png">
-                <img src="images/medarbetare/fresta.png">
-                <img src="images/medarbetare/gusdah.png">
-                <img src="images/medarbetare/hughag.png">
-                <img src="images/medarbetare/marham.png">
-                <img src="images/medarbetare/marnyl.png">
-                <img src="images/medarbetare/jonahn.png">
-                <img src="images/medarbetare/tomnas.png">
-                <img src="images/medarbetare/medarb4.png">
-            </td></tr>
-         <tr>
-            <td  id="bloggPage" style="background: #3399CC; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-
-                <p class="bloggText">
-                    <b>2013-03-14</b><br>
-                    <b>Om du får göra precis vad du vill</b><br><br>
-                    Blir det bra då? Kommer du att göra avtryck? Startar revolutionen? Kommer du att lyckas att hitta precis det du vill i ett hav av valmöjligheter?
-                    Jag har kollegor som pratar sig varma om behovet av constraints = restriktioner inom IT-världen. Vad innebär detta då? Jo, det kokar ner till en enkel sak (i min värld ialf). Om du har oändliga monetära resurser, bara har en suddig bild av var du vill och tiden är på din sida så kommer det du tyvärr med all säkerhet inte gå i mål med något revolutionerande. Eller helt enkelt uttryckt våga applicera restriktioner.
-                    <br><br>
-                    Aptitud platsar in i ovan diskussion på följande sätt;
-                   <br> ”….oändligt med monetära resurser…” Aptitud är ett bolag som föddes utan en krona på sparkontot. Vi har sagt det förut. Cashflow är bara en av flera konstanta pekpinnar som håller oss alerta.
-                   <br> ”…suddig bild av var vi ska…” Ja här stämmer det till viss del om man skulle fråga belackarna. Dock
-                    så har vi från start satt upp ett mål. Vi ska bli Stockholms bästa arbetsplats för konsulter. Jag tror nog att det kan te sig rätt suddigt för några men för oss så är det ett knivskarpt mål. Om vi ska lyckas så måste målet ligga på att vi tar hand om varandra, hjälper varandra och skapar attraktion i att vilja spendera mycket tid tillsammans.
-                   <br> ”…tiden på vår sida..” Tiden har vi på vår sida. I alla fall när det gäller att inte behöva stressa igenom beslut, hasta fram saker och slarva. Som klischè Kjell skulle ha sagt – Låta det mogna. Men ser på man på vår bransch så är tiden emot oss när det kommer till att slappna av för mycket och bara låta motorn rulla på tomgång. Vi måste hela tiden vara på tå kring hur vi arbetar med kollegor, kunder och vänner.
-                    <br><br>Men vaddå, vi skiljer oss ju inte så mycket från andra egentligen. Hur ska vi då lyckas med vårat mål, Stockholms bästa arbetsplats för konsulter. Jo det är här som restriktioner kommer in.
-                    Vi ser en marknad som är till 95% satt sedan flertalet år tillbaka. Våra kunder har ett upparbetat sätt att använda sig utav konsulthjälp i form utav upphandlingssätt, urval och sätt att skriva förfrågningar på. Jag hävdar att en stark restriktion i vår värld är att på kort sikt acceptera att det är så marknaden ser ut och agerar och lägga energin på att tolka behoven och möta dessa på det bästa sätt vi kan. Inte konstant döpa om våra roller, arbetsverktyg och sätt att göra uppdrag.
-                    Vi har en nödvändighet att hålla oss till ett språk som vänner och potentiella medarbetare förstår. Skriver vi om vokabuläret utifrån vår tro enbart så kommer vi ha problem med att göra oss förstådda.
-                    Svårighetsprincipen är den största fienden!
-                    <br><br>Så, 5% av marknaden är vår canvas att fylla med färg. Det kan te sig som lite men det är det som vi börjar med i alla fall. Ännu en restriktion.
-                    Detta är nu, titta in i vår butik och ta en kopp kaffe med oss så kommer du se att vi har bytt ut vissa restriktioner mot nya.
-                    <br><br>In times of change, what is static will be left behind…
-                </p>
-
-        </td></tr>
-    </table>
+        </td>
+    </tr>
+</table>
 </body>
 </html>

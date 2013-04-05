@@ -57,7 +57,7 @@ P {
     }
 }
 
-@media all  and (min-width:800px) {
+@media all and (min-width:800px) {
     #philosophyPage {
         padding-top: 7px;
         padding-left: 20%;

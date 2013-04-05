@@ -11,4 +11,26 @@ jQuery(document).ready(function ($) {
         event.preventDefault();
         $('html,body').animate({scrollTop: $(this.hash).offset().top}, 1000);
     });
+
+    requirejs.config({
+        baseUrl: "javascript"
+    });
+
+    require(["navigator"], function(navigator) {
+        var aliases = {};
+
+        $("[data-alias]").each(function(index, element) {
+            aliases[$(element).attr("data-alias")] = function() {
+                $(element).click();
+            }
+        });
+
+        navigator.subscribe(function(location) {
+            var callback = aliases[location];
+
+            if (callback) {
+                callback();
+            }
+        });
+    });
 });
