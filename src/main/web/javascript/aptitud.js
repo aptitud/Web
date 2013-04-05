@@ -339,7 +339,7 @@ $(function () {
         container.css("height", totalMaxY + "px");
     };
 
-    var portraitNames = ["andlow", "andnil", "davblo", "fresta", "gusdah", "hughag", "marham", "marnyl", "tomnas"];
+    var portraitNames = ["jonahn", "andlow", "andnil", "davblo", "gusdah", "hughag", "marham", "tomnas", "marnyl", "fresta"];
 
     portraitNames.forEach(function (name) {
         var portrait = document.createElement("img");

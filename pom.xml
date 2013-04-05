@@ -1,59 +1,88 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>se.aptitud.web</groupId>
 	<artifactId>aptitud-web</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
 	<name>Aptitud Web</name>
 	<url>http://www.aptitud.se</url>
 
 	<build>
-        <resources>
-            <resource>
-                <directory>script</directory>
-            </resource>
-        </resources>
         <testResources>
             <testResource>
-                <directory>test</directory>
+                <directory>src/test/javascript</directory>
             </testResource>
         </testResources>
+
 		<plugins>
-			<plugin>
-				<groupId>com.github.searls</groupId>
-				<artifactId>jasmine-maven-plugin</artifactId>
-				<version>1.2.0.0</version>
-				<extensions>true</extensions>
-				<executions>
-					<execution>
-						<goals>
-							<goal>test</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-                    <jsSrcDir>script</jsSrcDir>
-                    <jsTestSrcDir>test</jsTestSrcDir>
+            <plugin>
+                <groupId>com.github.searls</groupId>
+                <artifactId>jasmine-maven-plugin</artifactId>
+                <version>1.2.0.0</version>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <packageJavaScriptPath>${project.build.directory}/jasmine/src</packageJavaScriptPath>
+                    <jsSrcDir>src/main/web/javascript</jsSrcDir>
+
+
+                    <sourceExcludes>
+                        <sourceExclude>grid.js</sourceExclude>
+                        <sourceExclude>aptitud.js</sourceExclude>
+                    </sourceExcludes>
+
+                    <!--
                     <sourceIncludes>
-                        <sourceInclude>navigation.js</sourceInclude>
-                        <sourceInclude>swipe.js</sourceInclude>
+                        <sourceInclude>**/backport.js</sourceInclude>
                     </sourceIncludes>
+                    -->
+
                     <preloadSources>
-                        <preloadSource>script/jquery-1.8.1.min.js</preloadSource>
+                        <preloadSource>src/main/web/javascript/lib/jquery-1.8.1.min.js</preloadSource>
                     </preloadSources>
                 </configuration>
-			</plugin>
+            </plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+                    <warSourceDirectory>src/main/web</warSourceDirectory>
 				</configuration>
 			</plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.7</version>
+                <executions>
+                    <execution>
+                        <phase>post-integration-test</phase>
+                        <configuration>
+                            <target>
+                                <property name="target" value="${basedir}/target/deploy" />
+                                <unzip src="${project.build.directory}/${build.finalName}.war" dest="${target}" />
+                                <delete dir="${target}/META-INF" />
+                                <delete dir="${target}/WEB-INF" />
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
 		</plugins>
 	</build>
 </project>
