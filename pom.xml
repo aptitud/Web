@@ -3,24 +3,24 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-	<modelVersion>4.0.0</modelVersion>
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>se.aptitud.web</groupId>
-	<artifactId>aptitud-web</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+    <groupId>se.aptitud.web</groupId>
+    <artifactId>aptitud-web</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
 
-	<name>Aptitud Web</name>
-	<url>http://www.aptitud.se</url>
+    <name>Aptitud Web</name>
+    <url>http://www.aptitud.se</url>
 
-	<build>
+    <build>
         <testResources>
             <testResource>
                 <directory>src/test/javascript</directory>
             </testResource>
         </testResources>
 
-		<plugins>
+        <plugins>
             <plugin>
                 <groupId>com.github.searls</groupId>
                 <artifactId>jasmine-maven-plugin</artifactId>
@@ -44,27 +44,28 @@
                     </preloadSources>
                 </configuration>
             </plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.1</version>
-				<configuration>
-					<failOnMissingWebXml>false</failOnMissingWebXml>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                     <warSourceDirectory>src/main/web</warSourceDirectory>
-				</configuration>
-			</plugin>
+                </configuration>
+            </plugin>
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.7</version>
                 <executions>
                     <execution>
+                        <id>compile-deploy-directory</id>
                         <phase>post-integration-test</phase>
                         <configuration>
                             <target>
-                                <property name="target" value="${basedir}/target/deploy" />
-                                <unzip src="${project.build.directory}/${build.finalName}.war" dest="${target}" />
-                                <delete dir="${target}/META-INF" />
-                                <delete dir="${target}/WEB-INF" />
+                                <property name="target" value="${basedir}/target/deploy"/>
+                                <unzip src="${project.build.directory}/${build.finalName}.war" dest="${target}"/>
+                                <delete dir="${target}/META-INF"/>
+                                <delete dir="${target}/WEB-INF"/>
                             </target>
                         </configuration>
                         <goals>
@@ -73,6 +74,56 @@
                     </execution>
                 </executions>
             </plugin>
-		</plugins>
-	</build>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>stage</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>upload-deployment-to-ftp</id>
+                                <phase>post-integration-test</phase>
+                                <configuration>
+                                    <target>
+                                        <property name="aptitud.ftp.stagedir"
+                                                  value="/aptitud.se/public_html/stage/${project.version}" />
+
+                                        <ftp server="ftp.aptitud.se"
+                                             action="mkdir"
+                                             userid="${aptitud.ftp.username}"
+                                             password="${aptitud.ftp.password}"
+                                             remotedir="${aptitud.ftp.stagedir}"/>
+
+                                        <ftp server="ftp.aptitud.se"
+                                             remotedir="${aptitud.ftp.stagedir}"
+                                             userid="${aptitud.ftp.username}"
+                                             password="${aptitud.ftp.password}">
+                                            <fileset dir="${basedir}/target/deploy"/>
+                                        </ftp>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.ant</groupId>
+                                <artifactId>ant-commons-net</artifactId>
+                                <version>1.9.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
+    </profiles>
 </project>
