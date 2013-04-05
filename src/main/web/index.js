@@ -33,4 +33,8 @@ jQuery(document).ready(function ($) {
             }
         });
     });
+
+    $.getJSON("http://aptitud-sthlm.tumblr.com/api/read/json?num=1&callback=?", function(result) {
+        $("#bloggPage").html(result.posts[0]["regular-body"]);
+    });
 });
