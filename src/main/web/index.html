@@ -2,85 +2,13 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <title>Aptitud</title>
-    <script type="text/javascript" src="script/lib/jquery-1.8.1.min.js"></script>
-    <script type="text/javascript">
-        function updateLayout()
-        {
-            //alert(window.innerHeight);
-            document.getElementById("startPage").setAttribute("height",window.innerHeight+1);
-            document.getElementById("philosophyPage").setAttribute("height",window.innerHeight+1);
-            document.getElementById("aptitudDayPage").setAttribute("height",window.innerHeight+1);
-            document.getElementById("fellowPage").setAttribute("height",window.innerHeight+1);  
-            document.getElementById("bloggPage").setAttribute("height",window.innerHeight+1); 
-         }
-        
-    </script>
-    <script>
-	jQuery(document).ready(function($) {
- 
-	$(".scroll").click(function(event){		
-		event.preventDefault();
-		$('html,body').animate({scrollTop:$(this.hash).offset().top}, 1000);
-	});
-});
-    </script>
-    <STYLE type="text/css">
-    <!--
-    P {     
-        color: white;
-        text-align: left;
-        font-weight: lighter;
-        font-family: sans-serif; }
-    
-    @media all {
-        #philosophyPage{padding-top: 5px;padding-left:10%; padding-right:10%;}
-        #aptitudDayPage{padding-top: 5px;padding-left:10%; padding-right:10%;}
-        #bloggPage{padding-top: 5px;padding-left:10%; padding-right:10%;}
-        P {font-size:0.6em;}
-        
-    }
- 
-    @media all  and (min-width:600px){
-        #philosophyPage{padding-top: 5px;padding-left:15%; padding-right:15%;}
-        #aptitudDayPage{padding-top: 5px;padding-left:15%; padding-right:15%;}
-        #bloggPage{padding-top: 5px;padding-left:15%; padding-right:15%;}
-        P {font-size:0.7em;}
-        .bloggText{font-size:0.6em;}
-    }
-    @media all  and (min-width:800px){
-        #philosophyPage{padding-top: 7px;padding-left:20%; padding-right:20%;}
-        #aptitudDayPage{padding-top: 7px;padding-left:20%; padding-right:20%;}
-        #bloggPage{padding-top: 7px;padding-left:20%; padding-right:20%;}
-        P {font-size:0.8em;}
-        .bloggText{font-size:0.7em;}
-    }
-    @media all  and (min-width:1000px){
-        #philosophyPage{padding-top: 10px;padding-left:30%; padding-right:30%;}
-        #aptitudDayPage{padding-top: 10px;padding-left:30%; padding-right:30%;}
-        #bloggPage{padding-top: 10px;padding-left:30%; padding-right:30%;}
-        P {font-size:0.9em;}
-        .bloggText{font-size:0.8em;}
-    }
-    @media all and (orientation:portrait){
-        #senaste{height:40%;}
-         P {font-size:2em;}
-        .bloggText{font-size:1.7em;}
-        #klotter{width: 70%;}
-        #stnyg7{height:20%;bottom:1%}
-        
-    }
-     @media all and (orientation:landscape){
-        #senaste{width:30%;}
-        #stnyg7{height:25%;top:1%}
-        #klotter{width:40%;max-width: 150px;min-width:80px;}
-       
-        
-    }
-    
-           
-   -->
-    </STYLE>
+
+    <script type="text/javascript" src="javascript/lib/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+
+    <link type="text/css" href="index.css" rel="stylesheet" />
 </head>
 
 
@@ -90,8 +18,8 @@
     <a href="#aptitudDayPage" class="scroll"><img id="navAptitudDag"  border="0" src="images/navAptitudDag2.png" style="position: fixed ;right:1.5%;top:46%;width:30px;"></a>
     <a href="#fellowPage" class="scroll"><img id="navVi"  border="0" src="images/navVi2.png" style="position: fixed ;right:1.5%;top:54%;width:30px;"></a>
     <a href="#bloggPage" class="scroll"><img id="navBlogg"  border="0" src="images/navBlogg2.png" style="position: fixed ;right:1.5%;top:62%;width:30px;"></a>
-    
-  
+
+
 
 
     <table border="0"  cellspacing="0" cellpadding="0" >
@@ -104,7 +32,7 @@
                  <a href="http://www.linkedin.com/company/2660293" target="new"><img border="0" id="start-linkedin" src="images/linkedin.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
                 <a href="http://twitter.com/Aptitud_Sthlm" target="new"><img border="0" id="start-twitter" src="images/twitter.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
                 <a href="http://www.facebook.com/aptitudsthlm" target="new"><img border="0" id="start-fb" src="images/fb.png" style="max-width:35px;width:5%;min-width:15px;"/></a>
-                
+
             </td></tr>
         <tr>
             <td id="philosophyPage" style="background: #1e859a;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
@@ -113,16 +41,16 @@
                     Vi bygger Stockholms bästa arbetsplats. Där fokus är att ha roligt i sitt arbete. En plats dit människor söker sig naturligt, dit alla är välkomna. Välkomna att utbyta ideer, att inspireras och att inspirera.
                 </p>
                 <p>
-                En plats för stolta och passionerade hantverkare. Ivriga att lära och dela med sig av sin kunskap. Präglade av ödmjukhet och strävan mot ständig förbättring. 
+                En plats för stolta och passionerade hantverkare. Ivriga att lära och dela med sig av sin kunskap. Präglade av ödmjukhet och strävan mot ständig förbättring.
                </p>
                <p>
                    En plats för konsulter, deras vänner och kunder. Utvecklare, coacher, evangelister, ledare, ja alla som driver på utvecklingen inom området. En plats för oss som är seriösa utan att ta oss själva på för stort allvar. För oss som tycker om att ha roligt.
                </p>
-               <p> 
+               <p>
                    Vi drivs av Glädje, Transparens och Jävlar anamma.
                </p>
-               
-                
+
+
             </td></tr>
         <tr>
             <td  id="aptitudDayPage" style="background: #7A9752; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
@@ -137,7 +65,7 @@
                 <p>
                     Dagen avslutas med middag hos oss och en öppen afterwork för vänner i och utanför branschen.
                 </p>
-                
+
             </td></tr>
         <tr>
             <td id="fellowPage" style="padding-top: 7px;background: #FF6633;  text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
@@ -155,7 +83,7 @@
             </td></tr>
          <tr>
             <td  id="bloggPage" style="background: #3399CC; text-align: center; vertical-align: middle;width:100%;min-width: 200px;">
-               
+
                 <p class="bloggText">
                     <b>2013-03-14</b><br>
                     <b>Om du får göra precis vad du vill</b><br><br>
@@ -171,11 +99,11 @@
                     Vi ser en marknad som är till 95% satt sedan flertalet år tillbaka. Våra kunder har ett upparbetat sätt att använda sig utav konsulthjälp i form utav upphandlingssätt, urval och sätt att skriva förfrågningar på. Jag hävdar att en stark restriktion i vår värld är att på kort sikt acceptera att det är så marknaden ser ut och agerar och lägga energin på att tolka behoven och möta dessa på det bästa sätt vi kan. Inte konstant döpa om våra roller, arbetsverktyg och sätt att göra uppdrag.
                     Vi har en nödvändighet att hålla oss till ett språk som vänner och potentiella medarbetare förstår. Skriver vi om vokabuläret utifrån vår tro enbart så kommer vi ha problem med att göra oss förstådda.
                     Svårighetsprincipen är den största fienden!
-                    <br><br>Så, 5% av marknaden är vår canvas att fylla med färg. Det kan te sig som lite men det är det som vi börjar med i alla fall. Ännu en restriktion. 
+                    <br><br>Så, 5% av marknaden är vår canvas att fylla med färg. Det kan te sig som lite men det är det som vi börjar med i alla fall. Ännu en restriktion.
                     Detta är nu, titta in i vår butik och ta en kopp kaffe med oss så kommer du se att vi har bytt ut vissa restriktioner mot nya.
                     <br><br>In times of change, what is static will be left behind…
                 </p>
-                
+
         </td></tr>
     </table>
 </body>

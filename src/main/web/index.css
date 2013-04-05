@@ -1,0 +1,156 @@
+P {
+    color: white;
+    text-align: left;
+    font-weight: lighter;
+    font-family: sans-serif;
+}
+
+@media all {
+    #philosophyPage {
+        padding-top: 5px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    #aptitudDayPage {
+        padding-top: 5px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    #bloggPage {
+        padding-top: 5px;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    P {
+        font-size: 0.6em;
+    }
+}
+
+@media all and (min-width:600px) {
+    #philosophyPage {
+        padding-top: 5px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    #aptitudDayPage {
+        padding-top: 5px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    #bloggPage {
+        padding-top: 5px;
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+
+    P {
+        font-size: 0.7em;
+    }
+
+    .bloggText {
+        font-size: 0.6em;
+    }
+}
+
+@media all  and (min-width:800px) {
+    #philosophyPage {
+        padding-top: 7px;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    #aptitudDayPage {
+        padding-top: 7px;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    #bloggPage {
+        padding-top: 7px;
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    P {
+        font-size: 0.8em;
+    }
+
+    .bloggText {
+        font-size: 0.7em;
+    }
+}
+
+@media all  and (min-width:1000px) {
+    #philosophyPage {
+        padding-top: 10px;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    #aptitudDayPage {
+        padding-top: 10px;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    #bloggPage {
+        padding-top: 10px;
+        padding-left: 30%;
+        padding-right: 30%;
+    }
+
+    P {
+        font-size: 0.9em;
+    }
+
+    .bloggText {
+        font-size: 0.8em;
+    }
+}
+
+@media all and (orientation:portrait) {
+    #senaste {
+        height: 40%;
+    }
+
+    P {
+        font-size: 2em;
+    }
+
+    .bloggText {
+        font-size: 1.7em;
+    }
+
+    #klotter {
+        width: 70%;
+    }
+
+    #stnyg7 {
+        height: 20%;
+        bottom: 1%
+    }
+
+}
+
+@media all and (orientation:landscape) {
+    #senaste {
+        width: 30%;
+    }
+
+    #stnyg7 {
+        height: 25%;
+        top: 1%
+    }
+
+    #klotter {
+        width: 40%;
+        max-width: 150px;
+        min-width: 80px;
+    }
+
+}
