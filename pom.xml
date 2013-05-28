@@ -94,13 +94,13 @@
                                         <property name="aptitud.ftp.stagedir"
                                                   value="/aptitud.se/public_html/stage/${project.version}" />
 
-                                        <ftp server="ftp.aptitud.se"
+                                        <ftp passive="true" server="ftp.aptitud.se"
                                              action="mkdir"
                                              userid="${aptitud.ftp.username}"
                                              password="${aptitud.ftp.password}"
                                              remotedir="${aptitud.ftp.stagedir}"/>
 
-                                        <ftp server="ftp.aptitud.se"
+                                        <ftp passive="true" server="ftp.aptitud.se"
                                              remotedir="${aptitud.ftp.stagedir}"
                                              userid="${aptitud.ftp.username}"
                                              password="${aptitud.ftp.password}">
