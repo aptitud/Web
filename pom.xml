@@ -125,5 +125,52 @@
             </build>
 
         </profile>
+        <profile>
+            <id>prod</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>upload-deployment-to-ftp</id>
+                                <phase>post-integration-test</phase>
+                                <configuration>
+                                    <target>
+                                        <property name="aptitud.ftp.dir"
+                                                  value="/aptitud.se/public_html" />
+
+                                        <ftp passive="true" server="ftp.aptitud.se"
+                                             action="mkdir"
+                                             userid="${aptitud.ftp.username}"
+                                             password="${aptitud.ftp.password}"
+                                             remotedir="${aptitud.ftp.dir}"/>
+
+                                        <ftp passive="true" server="ftp.aptitud.se"
+                                             remotedir="${aptitud.ftp.dir}"
+                                             userid="${aptitud.ftp.username}"
+                                             password="${aptitud.ftp.password}">
+                                            <fileset dir="${basedir}/target/deploy"/>
+                                        </ftp>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <dependencies>
+                            <dependency>
+                                <groupId>org.apache.ant</groupId>
+                                <artifactId>ant-commons-net</artifactId>
+                                <version>1.9.0</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
+                </plugins>
+            </build>
+
+        </profile>
     </profiles>
 </project>
